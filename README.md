@@ -5,4 +5,5 @@
     
     技术架构 vue + element-ui + axios + vueRouter + vueX
     
-    插件 mavon-editor  具体地址 https://github.com/hinesboy/mavonEditor
+    插件 
+         mavon-editor  具体地址 https://github.com/hinesboy/mavonEditor
