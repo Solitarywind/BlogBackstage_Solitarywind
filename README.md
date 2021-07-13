@@ -11,5 +11,6 @@
          mavon-editor   npm install mavon-editor --save
          
 插件具体地址 https://github.com/hinesboy/mavonEditor
+
 插件演示地址 http://www.mavoneditor.com/
          
