@@ -7,7 +7,9 @@
     
     Css预编译器  SCSS
     
-    插件 
+    第三方插件 
          mavon-editor   npm install mavon-editor --save
-         具体地址 https://github.com/hinesboy/mavonEditor
+         
+插件具体地址 https://github.com/hinesboy/mavonEditor
+插件演示地址 http://www.mavoneditor.com/
          
