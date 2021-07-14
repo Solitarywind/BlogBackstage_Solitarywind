@@ -38,16 +38,31 @@ const routes = [
   {
     path: '/',
     name: 'Home',
+    mate: {
+      name: '首页',
+      isLogin: true,
+    },
     component: getPageComponent(() => import('../views/Home.vue')),
   },
   {
     path: '/about',
     name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
+    mate: {
+      name: '关于我们',
+      isLogin: true,
+    },
     component: getPageComponent(() => import(/* webpackChunkName: "about" */ '../views/About.vue')),
   },
+  {
+    path: '/login',
+    name: 'Login',
+    mate: {
+      name: '个人登录',
+      isLogin: false,
+    },
+    component: getPageComponent(() => import('../views/Login/Login.vue')),
+  },
+
 ];
 
 const router = new VueRouter({
