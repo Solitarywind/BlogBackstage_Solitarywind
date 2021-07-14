@@ -1,0 +1,23 @@
+@charset "UTF-8";
+html {
+  color: #373737;
+  font-family: "-apple-system", "BlinkMacSystemFont", "Roboto", "Helvetica Neue", "微软雅黑", sans-serif;
+  overflow: hidden;
+  height: 100%;
+}
+
+body {
+  overflow: hidden;
+  margin: 0;
+  height: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:hover {
+  color: #005bb7;
+}
+
+/*# sourceMappingURL=global.css.map */
