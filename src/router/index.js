@@ -43,6 +43,13 @@ const routes = [
       isLogin: true,
     },
     component: getPageComponent(() => import('../views/Home.vue')),
+    children: [
+      {
+        path: '/',
+        name: 'Page',
+        component: getPageComponent(() => import('../views/Page/Page.vue')),
+      },
+    ],
   },
   {
     path: '/about',
@@ -69,6 +76,10 @@ const router = new VueRouter({
   mode: 'history',
   // base: process.env.BASE_URL,
   routes,
+});
+
+router.afterEach(() => {
+  window.scrollTo(0, 0);
 });
 
 export default router;

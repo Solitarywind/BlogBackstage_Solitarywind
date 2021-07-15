@@ -17,7 +17,11 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: #005bb7;
+  color: #1186fd;
+}
+
+:root {
+  --sizecolor: #ebbc0e;
 }
 
 /*# sourceMappingURL=global.css.map */

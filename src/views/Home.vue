@@ -1,12 +1,12 @@
 <template>
-  <el-container style="height: 100%">
-    <BlogLeft />
-    <el-container>
-      <BlogRightHead />
-      <el-main>
-         <router-view/>
+  <el-container style="height: 100%;width: 100%">
+    <BlogLeft/>
+    <div class="contright">
+      <BlogRightHead/>
+      <el-main class="contmain">
+        <router-view/>
       </el-main>
-    </el-container>
+    </div>
   </el-container>
 
 </template>
@@ -24,3 +24,14 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+  .contright {
+    width: calc(100% - 200px);
+  }
+
+  .contmain {
+    background: #e6effb;
+    height: 100%;
+  }
+</style>
