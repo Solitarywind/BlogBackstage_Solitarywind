@@ -52,7 +52,7 @@ export default {
     display:flex;
   justify-content: space-between;
   .box-card{
-    width: 280px;
+    width: calc((100% - 100px) / 5);
     height: 150px;
     .clearfix{
        font-size: 20px;

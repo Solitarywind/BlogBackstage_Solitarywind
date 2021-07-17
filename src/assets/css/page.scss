@@ -1,8 +1,7 @@
 @import './var.scss';
 
 .contCard {
-  width: 625px;
-
+  // width: calc(100% - 200px);;0
   .clearfix {
     .hotArt {
       margin-right: 5px;
@@ -51,10 +50,10 @@
     .itemTitle{
         font-size: 18px;
         display: inline-block;
-        width: 470px;
+        width: calc(100% - 120px) ;
         text-overflow: ellipsis;
         white-space: nowrap;
-      overflow: hidden;
+        overflow: hidden;
     }
     &:nth-of-type(1) i{
       color:$error;
@@ -79,5 +78,49 @@
     margin-top:30px;
     display: flex;
     width: 100%;
-  justify-content: space-between;
+    justify-content: space-between;
+    margin-bottom: 100px;
+  .footCont{
+    width: calc((100% - 110px) / 2 );
+    box-sizing: border-box;
+    background: #fff;
+    .clearfix{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .hasnew{
+      cursor: pointer;
+      margin-left: 20px;
+      font-size: 14px;
+    }
+    .itemtext{
+      margin-bottom: 20px;
+       .itemTitle{
+        width: 100%;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        justify-content: flex-start;
+        font-size: 18px;
+       }
+       .itembtn{
+         display: flex;
+         justify-content: space-between;
+         font-size: 13px;
+         margin: 5px 0px 0px;
+         .tags{
+          color:$lightWords;
+          margin:0px 10px;
+          
+         }
+         .author,
+         .createTime{
+          color:$lightWords
+        }
+       }
+       
+    }
+  }
 }
+
