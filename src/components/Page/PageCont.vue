@@ -6,15 +6,17 @@
               <ContChart :ref="`chart${item.id}`"/>
            </el-tab-pane>
         </el-tabs>
+        <ContCard />
   </div>
 </template>
 
 <script>
 import ContChart from './ContChart.vue';
+import ContCard from './ContCard.vue';
 
 export default {
   name: 'PageCont',
-  components: { ContChart },
+  components: { ContCard, ContChart },
   data() {
     return {
       active: 'visits',
@@ -38,9 +40,12 @@ export default {
       ],
     };
   },
+  mounted() {
+    this.handleClick(0);
+  },
   methods: {
     handleClick(index) {
-      this.$refs[`chart${index}`][0].chartId = index;
+      this.$refs[`chart${index}`][0].changChartId(index);
       // console.log(e.index);
       // this.$refs[`Refdeman${dempIndex}`][0]
     },

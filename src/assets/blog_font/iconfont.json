@@ -6,6 +6,13 @@
   "description": "博客图标",
   "glyphs": [
     {
+      "icon_id": "7950556",
+      "name": "hot",
+      "font_class": "hot",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
       "icon_id": "328397",
       "name": "warning",
       "font_class": "warning",

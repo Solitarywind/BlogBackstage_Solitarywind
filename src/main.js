@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import element from 'element-ui';
 import editor from 'mavon-editor';
+import * as echarts from 'echarts';
 import App from './App.vue';
 import router from './router';
 import store from './store';
@@ -10,6 +11,7 @@ import './assets/css/global.scss';
 
 Vue.config.productionTip = false;
 Vue.prototype.$toast = toastMess;
+Vue.prototype.$echarts = echarts;
 Vue.use(element);
 Vue.use(editor);
 

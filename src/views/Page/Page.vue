@@ -2,16 +2,18 @@
     <div class="pageCont">
         <PageHeader :data="Pagedata" />
         <PageCont  />
+        <PageFoot />
     </div>
 </template>
 
 <script>
 import PageHeader from '../../components/Page/PageHeader.vue';
 import PageCont from '../../components/Page/PageCont.vue';
+import PageFoot from '../../components/Page/PageFoot.vue';
 
 export default {
   name: 'Page',
-  components: { PageCont, PageHeader },
+  components: { PageCont, PageHeader, PageFoot },
   data() {
     return {
       Pagedata: {
