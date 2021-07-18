@@ -51,9 +51,7 @@
         font-size: 18px;
         display: inline-block;
         width: calc(100% - 120px) ;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
+        @include ellipsis()
     }
     &:nth-of-type(1) i{
       color:$error;
@@ -93,16 +91,18 @@
       cursor: pointer;
       margin-left: 20px;
       font-size: 14px;
+      .active{
+        color:$themeWord
+      }
     }
+    
     .itemtext{
       margin-bottom: 20px;
        .itemTitle{
         width: 100%;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
+        @include ellipsis();
         justify-content: flex-start;
-        font-size: 18px;
+        font-size: 16px;
        }
        .itembtn{
          display: flex;
@@ -112,8 +112,13 @@
          .tags{
           color:$lightWords;
           margin:0px 10px;
-          
+          @include ellipsis();
+          width: 100px;
          }
+         .icon-hot{
+          margin-right: 3px;
+          color:rgb(250, 195, 43)
+        }
          .author,
          .createTime{
           color:$lightWords

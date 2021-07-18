@@ -3,7 +3,12 @@
     <div class="clearfix" slot="header">
       <h3>{{ contData.name }}</h3>
       <div class="header-right">
-        <el-select v-model="value" clearable placeholder="标签选择">
+        <el-select
+          v-model="tagval"
+          @change="changeTag($event)"
+          clearable
+          placeholder="标签选择"
+        >
           <el-option
             v-for="item in tagList"
             :key="item.id"
@@ -12,9 +17,9 @@
           >
           </el-option>
         </el-select>
-        <span class="hasnew"
-          >最新 <i v-if="isNew == 0" class="el-icon-bottom" />
-          <i v-else class="el-icon-top" />
+        <span class="hasnew" @click="changeNew"
+          >最新 <i v-show="isNew == 0" class="el-icon-bottom active" />
+          <i v-show="isNew == 1" class="el-icon-top active" />
         </span>
       </div>
     </div>
@@ -31,7 +36,9 @@
           </span>
           <i class="icon-hot iconfont" />{{ item.likeum }}
         </el-col>
-        <el-col :span="14" class="createTime">发布时间:{{ item.createTime }}</el-col>
+        <el-col :span="14" class="createTime"
+          >发布时间:{{ item.createTime }}</el-col
+        >
       </div>
     </div>
   </el-card>
@@ -44,6 +51,7 @@ export default {
   data() {
     return {
       isNew: 0,
+      tagval: '',
       tagList: [
         {
           id: '0',
@@ -67,6 +75,23 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    changeTag(val) {
+      console.log(val, this.tagval);
+    },
+    changeNew() {
+      let { isNew } = this;
+      if (isNew === 0) {
+        isNew = 1;
+        this.contData.list.sort((a, b) => Date.parse(a.createTime) - Date.parse(b.createTime));
+      } else {
+        isNew = 0;
+        this.contData.list.sort((a, b) => Date.parse(b.createTime) - Date.parse(a.createTime));
+      }
+      this.isNew = isNew;
+      console.log(this.contData.list);
+    },
   },
 };
 </script>
