@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-
 import 'nprogress/nprogress.css';
 import { start, done, configure } from 'nprogress';
+import store from '../store/index';
 
 Vue.use(VueRouter);
 
@@ -38,15 +38,15 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    mate: {
-      name: '首页',
-      isLogin: true,
-    },
     component: getPageComponent(() => import('../views/Home.vue')),
     children: [
       {
         path: '/',
         name: 'Page',
+        meta: {
+          name: '首页',
+          isLogin: true,
+        },
         component: getPageComponent(() => import('../views/Page/Page.vue')),
       },
     ],
@@ -54,7 +54,7 @@ const routes = [
   {
     path: '/about',
     name: 'About',
-    mate: {
+    meta: {
       name: '关于我们',
       isLogin: true,
     },
@@ -63,7 +63,7 @@ const routes = [
   {
     path: '/login',
     name: 'Login',
-    mate: {
+    meta: {
       name: '个人登录',
       isLogin: false,
     },
@@ -77,7 +77,17 @@ const router = new VueRouter({
   // base: process.env.BASE_URL,
   routes,
 });
-
+router.beforeEach((to, from, next) => {
+  console.log(to, from);
+  if (to.meta.isLogin) {
+    if (!store.state['Login/userinfo']) {
+      next('/Login');
+    } else {
+      next();
+    }
+  }
+  next();
+});
 router.afterEach(() => {
   window.scrollTo(0, 0);
 });
