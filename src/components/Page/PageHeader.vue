@@ -50,7 +50,7 @@ export default {
 .pageheader{
     width: 100%;
     display:flex;
-  justify-content: space-between;
+    justify-content: space-between;
   .box-card{
     width: calc((100% - 100px) / 5);
     height: 150px;

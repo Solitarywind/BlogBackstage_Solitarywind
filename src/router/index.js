@@ -49,6 +49,33 @@ const routes = [
         },
         component: getPageComponent(() => import('../views/Page/Page.vue')),
       },
+      {
+        path: '/Article/ArtList:page',
+        name: 'ArtList',
+        meta: {
+          name: '文章列表',
+          isLogin: true,
+        },
+        component: getPageComponent(() => import('../views/Artile/ArtList.vue')),
+      },
+      {
+        path: '/Article/AddArt:page',
+        name: 'AddArt',
+        meta: {
+          name: '新增文章',
+          isLogin: true,
+        },
+        component: getPageComponent(() => import('../views/Artile/AddArt.vue')),
+      },
+      {
+        path: '/Classification',
+        name: 'Classification',
+        meta: {
+          name: '分类',
+          isLogin: true,
+        },
+        component: getPageComponent(() => import('../views/Classification/Classification.vue')),
+      },
     ],
   },
   {
@@ -78,9 +105,8 @@ const router = new VueRouter({
   routes,
 });
 router.beforeEach((to, from, next) => {
-  console.log(to, from);
   if (to.meta.isLogin) {
-    if (!store.state['Login/userinfo']) {
+    if (Object.keys(store.state.Login.userinfo).length === 0) {
       next('/Login');
     } else {
       next();

@@ -31,11 +31,17 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import VerifiCode from '../../components/Login/VerifiCode.vue';
 
 export default {
   name: 'Login',
   components: { VerifiCode },
+  computed: {
+    ...mapState({
+      loginUser: (status) => status.login.loginUser,
+    }),
+  },
   data() {
     const setAccout = (rule, value, callback) => {
       if (!value) {
@@ -65,23 +71,17 @@ export default {
       if (!value) {
         return callback(new Error('验证码不可为空'));
       }
-
       if (value.length !== 4) {
         return callback(new Error('验证码长度为4位'));
       }
-
-      const reg = /^[A-Za-z]+$/;
+      const reg = /^[A-Za-z0-9]+$/;
       if (!reg.test(value)) {
-        return callback(new Error('验证码只能为英文'));
+        return callback(new Error('验证码只能为英文和数字'));
       }
       return callback();
     };
     return {
-      loginUser: {
-        account: '',
-        pass: '',
-        code: '',
-      },
+      vifiCode: '', // 验证码
       loginRules: {
         account: [{
           validator: setAccout,
@@ -100,13 +100,40 @@ export default {
   },
   methods: {
     updataCode(val) {
-      console.log(val);
+      this.vifiCode = val;
     },
-    resetLogin() {
-
+    resetLogin(formName) {
+      this.$refs[formName].resetFields();
     },
-    sumbitLogin() {
-      console.log(this.loginUser);
+    sumbitLogin(formName) {
+      this.$refs[formName].validate(async (valid) => {
+        if (valid) {
+          const { loginUser, vifiCode } = this;
+          if (vifiCode !== loginUser.code) {
+            this.$toast({
+              msg: '验证码输入有误,注意大小写问题',
+              type: 'error',
+            });
+          } else {
+            const status = await this.$store.dispatch('Login/login', loginUser);
+            if (status) {
+              this.$toast({
+                msg: '登录成功',
+                type: 'success',
+              });
+              this.$router.push('/');
+            } else {
+              this.$toast({
+                msg: '登录失败',
+                type: 'error',
+              });
+            }
+          }
+          return false;
+        }
+        console.log('error submit!!');
+        return false;
+      });
     },
   },
 };

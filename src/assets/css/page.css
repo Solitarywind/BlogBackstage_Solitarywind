@@ -119,6 +119,7 @@
 .pageFoot .footCont .itemtext .itembtn .author,
 .pageFoot .footCont .itemtext .itembtn .createTime {
   color: #999;
+  text-align: right;
 }
 
 /*# sourceMappingURL=page.css.map */
