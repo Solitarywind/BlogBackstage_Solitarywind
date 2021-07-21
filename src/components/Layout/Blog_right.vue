@@ -1,7 +1,7 @@
 <template>
   <el-header class="elehader" height="80px">
     <el-breadcrumb class="elbread" separator="/">
-      <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+      <el-breadcrumb-item></el-breadcrumb-item>
     </el-breadcrumb>
     <el-dropdown>
       <div class="userinfo">
@@ -26,6 +26,14 @@ export default {
       userinfo: (state) => state.Login.userinfo,
     }),
   },
+  // watch: {
+  //   $router: {
+  //     handler(val) {
+  //       console.log(val);
+  //     },
+  //     immediate: true,
+  //   },
+  // },
   data() {
     return {
       avatar: 'https://himg.bdimg.com/sys/portrait/item/wise.1.fb57baf7.XesiFWlM5iQywMOK1frD0Q.jpg?time=1804',

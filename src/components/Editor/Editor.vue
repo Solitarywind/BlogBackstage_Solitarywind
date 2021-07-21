@@ -14,6 +14,9 @@ export default {
     edvalue: {
       default: '',
     },
+    editHeight: {
+      type: String,
+    },
   },
   data() {
     return {

@@ -14,7 +14,7 @@
         </el-autocomplete>
       </el-form-item>
     </el-form>
-    <Editor v-model="article.content"/>
+    <Editor edit-height="800px" v-model="article.content"/>
     <el-row justify="end" type="flex">
       <el-button @click="submitArticle" class="subBtn" type="primary">发布</el-button>
     </el-row>

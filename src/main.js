@@ -8,6 +8,7 @@ import store from './store';
 import toastMess from './components/Toast/index';
 import 'element-ui/lib/theme-chalk/index.css';
 import './assets/css/global.scss';
+import 'mavon-editor/dist/css/index.css';
 
 Vue.config.productionTip = false;
 Vue.prototype.$toast = toastMess;

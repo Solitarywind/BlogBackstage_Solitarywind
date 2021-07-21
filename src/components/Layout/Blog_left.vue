@@ -5,16 +5,20 @@
                  style="vertical-align: middle"/>
       <h1>Solitary Wind</h1>
     </div>
-    <el-menu :default-active="menuList[0].id" :unique-opened="true" collapse-transition>
+    <el-menu @select="handleSelect"  :default-active="menuList[0].index"
+             :unique-opened="true" collapse-transition>
       <template v-for="item in menuList">
-        <el-submenu class="subitem" :index="item.id" :key="item.id" v-if="item.children">
+        <el-submenu  class="subitem"  :index="item.index"
+                     :key="item.id" v-if="item.children">
           <template slot="title"><i :class="item.icon"></i>{{item.name}}</template>
-          <el-menu-item :index="menuitem.id"
+          <el-menu-item
+                        :index="menuitem.index"
                         :key="menuitem.id"
-                        v-for="menuitem in item.children">{{menuitem.name}}
+                        v-for="menuitem in item.children">
+            {{menuitem.name}}
           </el-menu-item>
         </el-submenu>
-        <el-menu-item :index="item.id" :key="item.id" v-else>
+        <el-menu-item :index="item.index" :key="item.id" v-else>
           <i :class="item.icon"/>
           <span>{{item.name}}</span>
         </el-menu-item>
@@ -32,6 +36,12 @@ export default {
     return {
       menuList,
     };
+  },
+  methods: {
+    handleSelect(key) {
+      this.$store.dispatch('menu/assemble', key);
+      this.$router.push({ name: key });
+    },
   },
 };
 </script>
@@ -63,13 +73,17 @@ export default {
     background: none;
   }
 
-  .el-submenu__title:focus, .el-submenu__title:hover,
-  .el-menu-item:focus, .el-menu-item:hover, .el-menu-item.is-active {
+  .el-submenu__title:focus,
+  .el-submenu__title:hover,
+  .el-menu-item:focus,
+  .el-menu-item:hover,
+  .el-menu-item.is-active {
     background: $themeBg;
   }
 
   .el-submenu__title:focus,
-  .el-menu-item:focus, .el-menu-item.is-active{
+  .el-menu-item:focus,
+  .el-menu-item.is-active{
     color:var(--sizecolor);
   }
   .el-menu-item{

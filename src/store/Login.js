@@ -15,7 +15,6 @@ export default {
   },
   actions: {
     login({ commit }, userinfo) {
-      console.log(userinfo);
       if (userinfo) {
         commit('getUserinfo', userinfo);
         return true;

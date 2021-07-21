@@ -39,6 +39,7 @@ import CountTo from 'vue-count-to';
 export default {
   name: 'PageHeader',
   props: ['data'],
+
   components: {
     CountTo,
   },

@@ -50,7 +50,7 @@ const routes = [
         component: getPageComponent(() => import('../views/Page/Page.vue')),
       },
       {
-        path: '/Article/ArtList:page',
+        path: '/Article/ArtList',
         name: 'ArtList',
         meta: {
           name: '文章列表',
@@ -59,7 +59,7 @@ const routes = [
         component: getPageComponent(() => import('../views/Artile/ArtList.vue')),
       },
       {
-        path: '/Article/AddArt:page',
+        path: '/Article/AddArt',
         name: 'AddArt',
         meta: {
           name: '新增文章',
