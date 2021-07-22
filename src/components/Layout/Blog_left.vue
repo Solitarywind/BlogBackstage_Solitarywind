@@ -5,20 +5,20 @@
                  style="vertical-align: middle"/>
       <h1>Solitary Wind</h1>
     </div>
-    <el-menu @select="handleSelect"  :default-active="menuList[0].index"
+    <el-menu @select="handleSelect"  :default-active="activeIndex"
              :unique-opened="true" collapse-transition>
       <template v-for="item in menuList">
-        <el-submenu  class="subitem"  :index="item.index"
+        <el-submenu  class="subitem"  :index="item.index + ''"
                      :key="item.id" v-if="item.children">
           <template slot="title"><i :class="item.icon"></i>{{item.name}}</template>
           <el-menu-item
-                        :index="menuitem.index"
+                        :index="menuitem.index + ''"
                         :key="menuitem.id"
                         v-for="menuitem in item.children">
             {{menuitem.name}}
           </el-menu-item>
         </el-submenu>
-        <el-menu-item :index="item.index" :key="item.id" v-else>
+        <el-menu-item :index="item.index + ''" :key="item.id" v-else>
           <i :class="item.icon"/>
           <span>{{item.name}}</span>
         </el-menu-item>
@@ -35,7 +35,17 @@ export default {
   data() {
     return {
       menuList,
+      activeIndex: '',
     };
+  },
+  watch: {
+    '$route.name': {
+      handler(val) {
+        this.activeIndex = val;
+        this.handleSelect(val);
+      },
+      immediate: true,
+    },
   },
   methods: {
     handleSelect(key) {

@@ -1,7 +1,10 @@
 <template>
   <el-header class="elehader" height="80px">
     <el-breadcrumb class="elbread" separator="/">
-      <el-breadcrumb-item></el-breadcrumb-item>
+      <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+      <template v-for="item in breadName">
+        <el-breadcrumb-item v-if="item" :key="item">{{item}}</el-breadcrumb-item>
+      </template>
     </el-breadcrumb>
     <el-dropdown>
       <div class="userinfo">
@@ -24,16 +27,10 @@ export default {
   computed: {
     ...mapState({
       userinfo: (state) => state.Login.userinfo,
+      breadName: (state) => state.menu.breadName,
     }),
   },
-  // watch: {
-  //   $router: {
-  //     handler(val) {
-  //       console.log(val);
-  //     },
-  //     immediate: true,
-  //   },
-  // },
+
   data() {
     return {
       avatar: 'https://himg.bdimg.com/sys/portrait/item/wise.1.fb57baf7.XesiFWlM5iQywMOK1frD0Q.jpg?time=1804',

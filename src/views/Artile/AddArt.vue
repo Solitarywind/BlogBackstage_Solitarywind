@@ -2,21 +2,23 @@
   <div class="addArticle">
     <el-form :model="article" label-width="80px" ref="form">
       <el-form-item label="文章标题">
-        <el-input clearable placeholder="" style="width:300px" v-model="article.title"></el-input>
+        <el-input clearable  placeholder="请输入标题"
+                  style="width:300px" v-model="article.title"></el-input>
       </el-form-item>
       <el-form-item label="分类">
         <el-autocomplete
           :fetch-suggestions="querySearch"
           @select="handleSelect"
           clearable
-          placeholder="请输入内容"
+          placeholder="请输入分类"
           v-model="article.tag">
         </el-autocomplete>
       </el-form-item>
     </el-form>
-    <Editor edit-height="800px" v-model="article.content"/>
+    <Editor edit-height="700px" v-model="article.content"/>
     <el-row justify="end" type="flex">
-      <el-button @click="submitArticle" class="subBtn" type="primary">发布</el-button>
+      <el-button @click="submitArticle"
+                 class="subBtn" type="primary">发布</el-button>
     </el-row>
   </div>
 </template>
@@ -33,7 +35,7 @@ export default {
         title: '',
         tag: '',
         top: false,
-        content: '',
+        content: '输入内容',
       },
       restaurants: [],
     };
@@ -75,7 +77,7 @@ export default {
 <style lang="scss">
   .addArticle {
     width: 1200px;
-    margin: 100px auto;
+    margin: 30px auto;
 
     .subBtn {
       width: 100px;
