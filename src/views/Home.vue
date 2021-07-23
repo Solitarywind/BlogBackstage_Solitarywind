@@ -22,6 +22,9 @@ export default {
     BlogLeft,
     BlogRightHead,
   },
+  destroyed() {
+    this.$store.dispatch('Login/login', '');
+  },
 };
 </script>
 

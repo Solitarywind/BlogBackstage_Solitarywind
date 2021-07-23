@@ -39,7 +39,7 @@ export default {
   components: { VerifiCode },
   computed: {
     ...mapState({
-      loginUser: (status) => status.login.loginUser,
+      loginUser: (status) => status.Login.loginUser,
     }),
   },
   data() {

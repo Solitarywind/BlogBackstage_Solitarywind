@@ -78,7 +78,6 @@ export default {
   .addArticle {
     width: 1200px;
     margin: 30px auto;
-
     .subBtn {
       width: 100px;
       margin: 0 auto;
