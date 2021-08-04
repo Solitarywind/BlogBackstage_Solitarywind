@@ -1,7 +1,7 @@
 <template>
   <mavon-editor :code_style="codeStyle"
                 :ishljs="true" :style="{ height:editHeight,marginBottom:'20px'}" :toolbars="toolbar"
-                :value="edvalue" @change="edchange"
+                :value="value" @change="edchange"
   />
 </template>
 
@@ -11,7 +11,7 @@ import { toolbar } from './index';
 export default {
   name: 'Editor',
   props: {
-    edvalue: {
+    value: {
       default: '',
     },
     editHeight: {
