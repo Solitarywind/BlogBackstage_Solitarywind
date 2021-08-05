@@ -10,7 +10,7 @@
       <template v-for="item in menuList">
         <el-submenu  class="subitem"  :index="item.index + ''"
                      :key="item.id" v-if="item.children">
-          <template slot="title"><i :class="item.icon"></i>{{item.name}}</template>
+          <template slot="title"><i :class="item.icon"></i>{{item.name}}</template> 
           <el-menu-item
                         :index="menuitem.index + ''"
                         :key="menuitem.id"

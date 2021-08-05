@@ -4,7 +4,7 @@
     <div class="contright">
       <BlogRightHead/>
       <el-main class="contmain">
-        <router-view/>
+        <router-view  />
       </el-main>
     </div>
   </el-container>

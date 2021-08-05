@@ -30,11 +30,10 @@
         </div>
       </el-form-item>
     </el-form>
-    <Editor edit-height="700px" v-model="article.artContent" />
+    <Editor edit-height="650px" v-model="article.artContent" />
     <el-row justify="end" type="flex">
       <el-button @click="submitArticle" class="subBtn" type="primary"
-        >发布</el-button
-      >
+        >发布</el-button>
     </el-row>
   </div>
 </template>
@@ -86,6 +85,10 @@ export default {
   .subBtn {
     width: 100px;
     margin: 0 auto;
+    padding: 0px;
+    height:30px;
+    line-height: 30px;
+    margin-bottom: 50px;
   }
 }
 .checkout{

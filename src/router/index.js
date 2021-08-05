@@ -68,6 +68,24 @@ const routes = [
         component: getPageComponent(() => import('../views/Artile/AddArt.vue')),
       },
       {
+        path: '/Note/NoteList',
+        name: 'NoteList',
+        mate: {
+          name: '笔记列表',
+          isLogin: true,
+        },
+        component: getPageComponent(() => import('../views/Note/NoteList.vue')),
+      },
+      {
+        path: '/Note/AddNote',
+        name: 'AddNote',
+        mate: {
+          name: '添加笔记',
+          isLogin: true,
+        },
+        component: getPageComponent(() => import('../views/Note/AddNote.vue')),
+      },
+      {
         path: '/Classification',
         name: 'Classification',
         meta: {
