@@ -109,9 +109,9 @@ export default {
       this.$refs[formName].validate(async (valid) => {
         if (valid) {
           const { loginUser, vifiCode } = this;
-          if (vifiCode !== loginUser.code) {
+          if (vifiCode.toLowerCase() !== loginUser.code.toLowerCase()) {
             this.$toast({
-              msg: '验证码输入有误,注意大小写问题',
+              msg: '验证码输入有误',
               type: 'error',
             });
           } else {

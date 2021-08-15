@@ -47,12 +47,12 @@ const menuList = [{
   icon: 'el-icon-document',
   id: '4',
   index: 'Classification',
-
 },
 {
   name: '标签管理',
   icon: 'el-icon-document',
   id: '5',
+  index: 'Label',
 },
 ];
 

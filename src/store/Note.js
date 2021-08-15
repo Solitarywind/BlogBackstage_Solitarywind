@@ -38,7 +38,20 @@ export default {
       label: 'ReatSSR',
       effect: false,
     },
+    {
+      label: 'Javascript',
+      effect: false,
+    },
+    {
+      label: 'DOM',
+      effect: false,
+    },
+    {
+      label: 'BOM',
+      effect: false,
+    },
     ],
+    noteData: {},
   },
   mutations: {
     getLabel(state, {
@@ -46,9 +59,13 @@ export default {
     }) {
       state.labeList = labeList;
     },
+    getNoteData(state, { noteData }) {
+      state.noteData = noteData;
+    },
   },
   /* eslint no-param-reassign: "error" */
   actions: {
+    // 选择标签
     changeLabel({
       state,
       commit,
@@ -59,6 +76,22 @@ export default {
           item.effect = type;
         }
       });
+      commit('getLabel', {
+        labeList: labelitem,
+      });
+    },
+    // 删除标签
+    deleteLabel({ state, commit }, played) {
+      const labelitem = state.labeList;
+      labelitem.splice(state.labeList.indexOf(played), 1);
+      commit('getLabel', {
+        labeList: labelitem,
+      });
+    },
+    // 添加标签
+    addLabel({ state, commit }, played) {
+      const labelitem = state.labeList;
+      labelitem.push(played);
       commit('getLabel', {
         labeList: labelitem,
       });

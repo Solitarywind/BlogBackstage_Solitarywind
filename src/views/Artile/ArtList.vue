@@ -1,16 +1,7 @@
 <template>
   <div class="artCont">
     <div class="artHead">
-      <el-date-picker
-        v-model="searchData.artDate"
-        type="daterange"
-        range-separator="至"
-        start-placeholder="开始日期"
-        end-placeholder="结束日期"
-        :picker-options="pickerOptions"
-        clearable
-        value-format="yyyy-MM-dd"
-      />
+       <select-date @input="changeDate" />
       <el-select
         placeholder="请选择分类"
         v-model="searchData.classActive"
@@ -24,30 +15,22 @@
           :value="item.id"
         ></el-option>
       </el-select>
-      <el-input
-        style="width: 280px"
-        placeholder="请输入你想输入的"
-        v-model="keyword"
-      >
-        <el-button type="primary" @click.stop="confirmBtn" slot="append"
-          >搜索</el-button
-        >
-      </el-input>
+      <Search @confirmBtn="confirmBtn" />
     </div>
     <el-button style="margin: 20px 0px">全部删除</el-button>
     <el-table border :data="artList">
-      <el-table-column type="selection" width="55" />
-      <el-table-column prop="creatDate" label="发布时间"> </el-table-column>
-      <el-table-column prop="authorCode" label="作者代号"> </el-table-column>
-      <el-table-column prop="articleTitle" label="文章名称"> </el-table-column>
-      <el-table-column prop="articleClass" label="文章分类">
+      <el-table-column type="selection" width="55" align="center" />
+      <el-table-column prop="creatDate" label="发布时间" align="center" />
+      <el-table-column prop="authorCode" label="作者代号" align="center" />
+      <el-table-column prop="articleTitle" label="文章名称" align="center" />
+      <el-table-column prop="articleClass" label="文章分类" align="center">
         <template slot-scope="scope">
           <span style="margin-right:5px" v-for="item in scope.row.articleClass" :key="item">{{
             item
           }} </span>
         </template>
       </el-table-column>
-      <el-table-column fixed="right" label="操作">
+      <el-table-column fixed="right" label="操作" align="center">
         <template slot-scope="scope">
           <el-button
             class="textLook"
@@ -76,17 +59,20 @@
 <script>
 import Artpopup from '../../components/other/Artpopup.vue';
 import Popup from '../../components/other/Popup.vue';
+import Search from '../../components/other/Search.vue';
+import SelectDate from '../../components/other/SelectDate.vue';
 
 export default {
   name: 'ArtList',
   components: {
     Popup,
     Artpopup,
+    Search,
+    SelectDate,
   },
   data() {
     return {
       popupStatus: false,
-      keyword: '', // 关键字
       searchData: {
         artDate: '', // 选择日期
         classActive: '', // 选择分类
@@ -113,11 +99,7 @@ export default {
           id: '5',
         },
       ],
-      pickerOptions: {
-        disabledDate(time) {
-          return time.getTime() > Date.now();
-        },
-      },
+
       artList: [
         {
           id: 1,
@@ -141,11 +123,14 @@ export default {
     },
   },
   methods: {
+    changeDate(value) {
+      this.searchData.artDate = value;
+    },
     closePopup() {
       this.popupStatus = false;
     },
-    confirmBtn() {
-      this.searchData.keyword = this.keyword;
+    confirmBtn(keyword) {
+      this.searchData.keyword = keyword;
     },
     // 查看
     checkout(index) {

@@ -9,7 +9,7 @@
           v-model="article.articleTitle"
         ></el-input>
       </el-form-item>
-        <el-form-item label="笔名">
+      <el-form-item label="笔名">
         <el-input
           clearable
           placeholder="请输入笔名"
@@ -30,10 +30,15 @@
         </div>
       </el-form-item>
     </el-form>
-    <Editor edit-height="650px" v-model="article.artContent" />
+    <Editor
+      editHeight="650px"
+      @edchange="edchange"
+       :editVal="artContent"
+    />
     <el-row justify="end" type="flex">
       <el-button @click="submitArticle" class="subBtn" type="primary"
-        >发布</el-button>
+        >发布</el-button
+      >
     </el-row>
   </div>
 </template>
@@ -46,6 +51,7 @@ export default {
   components: { Editor },
   data() {
     return {
+      artContent: '',
       article: {
         articleTitle: '',
         authorCode: '',
@@ -60,8 +66,9 @@ export default {
   created() {
     if (Object.keys(this.$route.params).length > 0) {
       this.$route.meta.name = '编辑文章';
-      this.article = this.$store.state.Article.artItem;
-      console.log(this.article.artContent);
+      const article = this.$store.state.Article.artItem;
+      this.artContent = article.artContent;
+      this.article = article;
     } else {
       this.$store.commit('Article/getAtion', '');
     }
@@ -71,7 +78,9 @@ export default {
       this.article.tag = item.value;
       // console.log(item);
     },
-
+    edchange(val) {
+      this.article.artContent = val;
+    },
     submitArticle() {
       console.log(this.article);
     },
@@ -86,13 +95,13 @@ export default {
     width: 100px;
     margin: 0 auto;
     padding: 0px;
-    height:30px;
+    height: 30px;
     line-height: 30px;
     margin-bottom: 50px;
   }
 }
-.checkout{
+.checkout {
   background: #fff;
-  padding:10px;
+  padding: 10px;
 }
 </style>

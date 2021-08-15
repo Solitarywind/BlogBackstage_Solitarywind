@@ -1,7 +1,7 @@
 <template>
   <div class="cont">
     <div class="arthead">
-      <h2>今天天气真热</h2>
+      <h2>{{artdata.articleTitle}}</h2>
       <el-row type="flex" justify="center">
         <el-col  class="artspan">笔名：{{artdata.authorCode}}</el-col>
         <el-col  class="artspan"

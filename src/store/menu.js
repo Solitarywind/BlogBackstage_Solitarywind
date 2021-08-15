@@ -12,7 +12,6 @@ export default {
   },
   actions: {
     assemble({ commit }, val) {
-      // console.log(val);
       if (val !== 'Page') {
         const barms = (nodes = [], yarr = []) => {
           const domearr = [];

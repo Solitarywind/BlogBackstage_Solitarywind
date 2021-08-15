@@ -86,6 +86,15 @@ const routes = [
         component: getPageComponent(() => import('../views/Note/AddNote.vue')),
       },
       {
+        path: '/Label',
+        name: 'Label',
+        mate: {
+          name: '标签',
+          isLogin: true,
+        },
+        component: getPageComponent(() => import('../views/Label/Label.vue')),
+      },
+      {
         path: '/Classification',
         name: 'Classification',
         meta: {

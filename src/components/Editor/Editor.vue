@@ -1,7 +1,7 @@
 <template>
   <mavon-editor :code_style="codeStyle"
                 :ishljs="true" :style="{ height:editHeight,marginBottom:'20px'}" :toolbars="toolbar"
-                :value="value" @change="edchange"
+                v-model="editorValue" @change="edchange"
   />
 </template>
 
@@ -11,7 +11,7 @@ import { toolbar } from './index';
 export default {
   name: 'Editor',
   props: {
-    value: {
+    editVal: {
       default: '',
     },
     editHeight: {
@@ -22,12 +22,23 @@ export default {
     return {
       toolbar,
       codeStyle: 'solarized-dark',
+      editorValue: '',
     };
+  },
+  watch: {
+    editVal: {
+      handler(val) {
+        console.log(val);
+        if (val) {
+          this.editorValue = val;
+        }
+      },
+      immediate: true,
+    },
   },
   methods: {
     edchange(e, value) {
-      // console.log(e, value);
-      this.$emit('input', value);
+      this.$emit('edchange', value);
     },
   },
 };

@@ -45,7 +45,7 @@
           </div>
         </div>
       </el-form-item>
-      <Editor editHeight="650px" v-model="noteData.noteCont" />
+      <Editor editHeight="650px" @edchange="edchange" :editVal="noteCont"/>
       <el-row justify="end" type="flex">
         <el-button @click="submitNote" class="subBtn" type="primary"
           >发布</el-button
@@ -64,6 +64,7 @@ export default {
   name: 'AddNote',
   data() {
     return {
+      noteCont: '',
       noteData: {
         noteTitle: '',
         noteCode: '',
@@ -77,10 +78,20 @@ export default {
       labeList: (state) => state.Note.labeList,
     }),
   },
+  created() {
+    if (Object.keys(this.$route.params).length > 0) {
+      this.$route.meta.name = '编辑笔记';
+      const note = this.$store.state.Note.noteData;
+      console.log(note);
+      this.noteCont = note.noteCont;
+      this.noteData = note;
+    } else {
+      this.$store.commit('Note/getNoteData', '');
+    }
+  },
   methods: {
     // 删除标签
     handleClose(tag) {
-      console.log(tag);
       this.noteData.noteLabel.splice(this.noteData.noteLabel.indexOf(tag), 1);
       this.$store.dispatch('Note/changeLabel', { tag, type: false });
     },
@@ -91,6 +102,9 @@ export default {
       noteLabel = noteLabel.filter((item, index, self) => self.indexOf(item) === index);
       this.noteData.noteLabel = noteLabel;
       this.$store.dispatch('Note/changeLabel', { tag, type: true });
+    },
+    edchange(val) {
+      this.noteData.noteCont = val;
     },
     submitNote() {
       console.log(this.noteData);
