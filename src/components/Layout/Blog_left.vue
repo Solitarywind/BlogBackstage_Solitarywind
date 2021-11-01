@@ -5,23 +5,25 @@
                  style="vertical-align: middle"/>
       <h1>Solitary Wind</h1>
     </div>
-    <el-menu @select="handleSelect"  :default-active="activeIndex"
+    <el-menu @select="handleSelect" :default-active="activeIndex"
              :unique-opened="true" collapse-transition>
       <template v-for="item in menuList">
-        <el-submenu  class="subitem"  :index="item.index + ''"
-                     :key="item.id" v-if="item.children">
-          <template slot="title"><i :class="item.icon"></i>{{item.name}}</template>
-          <el-menu-item
-                        :index="menuitem.index + ''"
-                        :key="menuitem.id"
-                        v-for="menuitem in item.children">
-            {{menuitem.name}}
+        <template v-if="!item.hidden">
+          <el-submenu class="subitem" :index="item.index + ''"
+                      :key="item.id" v-if="item.children">
+            <template slot="title"><i :class="item.icon"></i>{{item.name}}</template>
+            <el-menu-item
+              :index="menuitem.index + ''"
+              :key="menuitem.id"
+              v-for="menuitem in item.children">
+              {{menuitem.name}}
+            </el-menu-item>
+          </el-submenu>
+          <el-menu-item :index="item.index + ''" :key="item.id" v-else>
+            <i :class="item.icon"/>
+            <span>{{item.name}}</span>
           </el-menu-item>
-        </el-submenu>
-        <el-menu-item :index="item.index + ''" :key="item.id" v-else>
-          <i :class="item.icon"/>
-          <span>{{item.name}}</span>
-        </el-menu-item>
+        </template>
       </template>
     </el-menu>
   </el-aside>
@@ -56,30 +58,33 @@ export default {
 };
 </script>
 <style scoped>
- /deep/ .el-submenu__title:hover{
-     background: #60a4ff7f;
-    color:var(--sizecolor);
- }
- /deep/ .el-submenu__title:hover i,
- /deep/ .el-menu-item.is-active i{
-   color:var(--sizecolor);
- }
- /deep/ .el-submenu__title,
- /deep/ .el-submenu__title i{
-   color:#fff;
- }
- /deep/ .el-submenu .el-menu{
+  /deep/ .el-submenu__title:hover {
+    background: #60a4ff7f;
+    color: var(--sizecolor);
+  }
+
+  /deep/ .el-submenu__title:hover i,
+  /deep/ .el-menu-item.is-active i {
+    color: var(--sizecolor);
+  }
+
+  /deep/ .el-submenu__title,
+  /deep/ .el-submenu__title i {
+    color: #fff;
+  }
+
+  /deep/ .el-submenu .el-menu {
     background: none;
   }
 </style>
 <style lang="scss" scoped>
   @import "../../assets/css/var.scss";
 
-  .el-menu{
+  .el-menu {
     background: none;
   }
 
-  .subitem .el-menu{
+  .subitem .el-menu {
     background: none;
   }
 
@@ -93,30 +98,36 @@ export default {
 
   .el-submenu__title:focus,
   .el-menu-item:focus,
-  .el-menu-item.is-active{
-    color:var(--sizecolor);
+  .el-menu-item.is-active {
+    color: var(--sizecolor);
   }
-  .el-menu-item{
-    color:#fff;
+
+  .el-menu-item {
+    color: #fff;
+
     i {
-      color:#fff;
+      color: #fff;
     }
   }
+
   .el-menu-item:hover,
-  .el-submenu__title:hover{
-    color:var(--sizecolor);
-    i{
-      color:var(--sizecolor);
+  .el-submenu__title:hover {
+    color: var(--sizecolor);
+
+    i {
+      color: var(--sizecolor);
     }
   }
+
   .logo {
     height: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
-    h1{
-       margin-left: 10px;
-      color:#fff;
+
+    h1 {
+      margin-left: 10px;
+      color: #fff;
     }
   }
 

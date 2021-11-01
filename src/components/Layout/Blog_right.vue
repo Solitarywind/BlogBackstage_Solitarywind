@@ -12,8 +12,8 @@
         <h3>{{userinfo.account}}</h3>
       </div>
       <el-dropdown-menu slot="dropdown">
-        <el-dropdown-item>个人中心</el-dropdown-item>
-        <el-dropdown-item>退出登录</el-dropdown-item>
+        <el-dropdown-item @click.native="personalCont">个人中心</el-dropdown-item>
+        <el-dropdown-item @click.native="signOut">退出登录</el-dropdown-item>
       </el-dropdown-menu>
     </el-dropdown>
   </el-header>
@@ -35,6 +35,26 @@ export default {
     return {
       avatar: 'https://himg.bdimg.com/sys/portrait/item/wise.1.fb57baf7.XesiFWlM5iQywMOK1frD0Q.jpg?time=1804',
     };
+  },
+  methods: {
+    personalCont() {
+      this.$router.push({
+        path: '/About',
+      });
+    },
+    signOut() {
+      this.$confirm('是否退出登录', '提示', {
+        type: 'warning',
+      })
+        .then(async () => {
+          const status = await this.$store.dispatch('Login/loginOut');
+          if (status) {
+            this.$router.push({
+              path: '/login',
+            });
+          }
+        });
+    },
   },
 };
 </script>

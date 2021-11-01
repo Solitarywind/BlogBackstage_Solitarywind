@@ -50,9 +50,15 @@ const menuList = [{
 },
 {
   name: '标签管理',
-  icon: 'el-icon-document',
+  icon: 'el-icon-picture-outline-round',
   id: '5',
   index: 'Label',
+},
+{
+  name: '个人中心',
+  id: '6',
+  index: 'About',
+  hidden: true,
 },
 ];
 

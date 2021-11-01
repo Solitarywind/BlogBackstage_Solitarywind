@@ -21,5 +21,9 @@ export default {
       }
       return false;
     },
+    loginOut({ commit }) {
+      commit('getUserinfo', {});
+      return true;
+    },
   },
 };

@@ -103,16 +103,16 @@ const routes = [
         },
         component: getPageComponent(() => import('../views/Classification/Classification.vue')),
       },
+      {
+        path: '/about',
+        name: 'About',
+        meta: {
+          name: '个人信息',
+          isLogin: true,
+        },
+        component: getPageComponent(() => import(/* webpackChunkName: "about" */ '../views/About.vue')),
+      },
     ],
-  },
-  {
-    path: '/about',
-    name: 'About',
-    meta: {
-      name: '关于我们',
-      isLogin: true,
-    },
-    component: getPageComponent(() => import(/* webpackChunkName: "about" */ '../views/About.vue')),
   },
   {
     path: '/login',
