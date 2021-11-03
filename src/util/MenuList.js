@@ -60,6 +60,12 @@ const menuList = [{
   index: 'About',
   hidden: true,
 },
+{
+  name: '评论管理',
+  icon: 'el-icon-chat-dot-round',
+  id: '7',
+  index: 'Comment',
+},
 ];
 
 export default menuList;

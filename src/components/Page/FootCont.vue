@@ -27,9 +27,9 @@
       <el-link class="itemTitle" :underline="false">{{ item.name }}</el-link>
       <div class="itembtn">
         <el-col :span="24">
-          作者: <span class="author">{{ item.author }}</span>
+          {{contData.index === 0 ? '作者' : '笔名'}}: <span class="author">{{ item.author }}</span>
           <span class="tags"
-            >标签:
+            >{{contData.index === 0 ? '分类' : '标签'}}:
             <span v-for="tagitem in item.tag" :key="tagitem"
               >#{{ tagitem }}
             </span>

@@ -30,7 +30,8 @@ export default {
 
 <style scoped>
   .contright {
-    width: calc(100% - 200px);
+    width: calc(100vw - 200px);
+    overflow: hidden;
   }
 
   .contmain {

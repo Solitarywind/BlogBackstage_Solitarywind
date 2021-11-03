@@ -26,15 +26,19 @@
     margin-bottom: 25px;
     justify-content: space-between;
     align-items: center;
-    &:nth-of-type(1) .itemNum{
-      background:$error;
+
+    &:nth-of-type(1) .itemNum {
+      background: $error;
     }
-    &:nth-of-type(2) .itemNum{
-      background:$warning;
+
+    &:nth-of-type(2) .itemNum {
+      background: $warning;
     }
-    &:nth-of-type(3) .itemNum{
-      background:#ebbc0e;
+
+    &:nth-of-type(3) .itemNum {
+      background: #ebbc0e;
     }
+
     .itemNum {
       display: inline-block;
       width: 30px;
@@ -44,88 +48,103 @@
       text-align: center;
       line-height: 30px;
       border-radius: 50%;
-      color:#fff;
+      color: #fff;
     }
 
-    .itemTitle{
-        font-size: 18px;
-        display: inline-block;
-        width: calc(100% - 120px) ;
-        @include ellipsis()
+    .itemTitle {
+      font-size: 18px;
+      display: inline-block;
+      width: calc(100% - 120px);
+      @include ellipsis()
     }
-    &:nth-of-type(1) i{
-      color:$error;
-    }
-    &:nth-of-type(2) i{
-      color:$warning;
-    }
-    &:nth-of-type(3) i{
-      color:#ebbc0e;
-    }
-    .hotNum{
 
-       i {
-           margin-right: 5px;
-       }
+    &:nth-of-type(1) i {
+      color: $error;
+    }
+
+    &:nth-of-type(2) i {
+      color: $warning;
+    }
+
+    &:nth-of-type(3) i {
+      color: #ebbc0e;
+    }
+
+    .hotNum {
+
+      i {
+        margin-right: 5px;
+      }
     }
   }
 }
 
 
-.pageFoot{
-    margin-top:30px;
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    margin-bottom: 100px;
-  .footCont{
-    width: calc((100% - 110px) / 2 );
+.pageFoot {
+  margin-top: 30px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 100px;
+
+  .footCont {
+    width: calc((100% - 110px) / 2);
     box-sizing: border-box;
     background: #fff;
-    .clearfix{
+
+    .clearfix {
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-    .hasnew{
+
+    .hasnew {
       cursor: pointer;
       margin-left: 20px;
       font-size: 14px;
-      .active{
-        color:$themeWord
+
+      .active {
+        color: $themeWord
       }
     }
-    
-    .itemtext{
+
+    .itemtext {
       margin-bottom: 20px;
-       .itemTitle{
+
+      .itemTitle {
         width: 100%;
         @include ellipsis();
         justify-content: flex-start;
         font-size: 16px;
-       }
-       .itembtn{
-         display: flex;
-         justify-content: space-between;
-         font-size: 13px;
-         margin: 5px 0px 0px;
-         .tags{
-          color:$lightWords;
-          margin:0px 10px;
+      }
+
+      .itembtn {
+        display: flex;
+        justify-content: space-between;
+        font-size: 13px;
+        margin: 5px 0px 0px;
+        align-items: center;
+
+        .tags {
+          color: $lightWords;
+          margin: 0px 10px;
           @include ellipsis();
           width: 100px;
-         }
-         .icon-hot{
+          vertical-align: bottom;
+        }
+
+        .icon-hot {
           margin-right: 3px;
-          color:rgb(250, 195, 43)
+          color: rgb(250, 195, 43)
         }
-         .author,
-         .createTime{
-          color:$lightWords;
-           text-align: right;
+
+        .author,
+        .createTime {
+          color: $lightWords;
+          text-align: right;
         }
-       }
-       
+      }
+
     }
   }
 }

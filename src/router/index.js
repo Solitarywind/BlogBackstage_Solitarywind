@@ -104,6 +104,15 @@ const routes = [
         component: getPageComponent(() => import('../views/Classification/Classification.vue')),
       },
       {
+        path: '/Comment',
+        name: 'Comment',
+        mate: {
+          name: '评论管理',
+          isLogin: true,
+        },
+        component: getPageComponent(() => import('../views/Comment/Comment.vue')),
+      },
+      {
         path: '/about',
         name: 'About',
         meta: {

@@ -25,9 +25,8 @@
       <el-table-column prop="articleTitle" label="文章名称" align="center" />
       <el-table-column prop="articleClass" label="文章分类" align="center">
         <template slot-scope="scope">
-          <span style="margin-right:5px" v-for="item in scope.row.articleClass" :key="item">{{
-            item
-          }} </span>
+          <span style="margin-right:5px" v-for="item in scope.row.articleClass" :key="item">
+            {{ item }} </span>
         </template>
       </el-table-column>
       <el-table-column fixed="right" label="操作" align="center">

@@ -9,10 +9,10 @@
           v-model="article.articleTitle"
         ></el-input>
       </el-form-item>
-      <el-form-item label="笔名">
+      <el-form-item label="作者">
         <el-input
           clearable
-          placeholder="请输入笔名"
+          placeholder="请输入作者"
           style="width: 300px"
           v-model="article.authorCode"
         ></el-input>
