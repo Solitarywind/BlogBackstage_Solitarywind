@@ -1,64 +1,31 @@
 {
-  "name": "blogbackstage",
-  "version": "0.1.0",
-  "private": true,
+  "name": "blogbackstage_solitarywind",
+  "version": "1.0.0",
+  "description": "```\r  npm install\r  ```",
+  "main": "index.js",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint --exit .js,.vue src"
+    "start": "nodemon -x npm run server",
+    "server": "node index",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Solitarywind/BlogBackstage_Solitarywind.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Solitarywind/BlogBackstage_Solitarywind/issues"
+  },
+  "homepage": "https://github.com/Solitarywind/BlogBackstage_Solitarywind#readme",
   "dependencies": {
-    "core-js": "^3.6.5",
-    "echarts": "^5.1.2",
-    "element-ui": "^2.15.3",
-    "mavon-editor": "^2.9.1",
-    "mockjs": "^1.1.0",
-    "nprogress": "^0.2.0",
-    "vue": "^2.6.11",
-    "vue-count-to": "^1.0.13",
-    "vue-router": "^3.2.0",
-    "vuex": "^3.4.0",
-    "vuex-persistedstate": "^4.0.0"
-  },
-  "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-eslint": "~4.5.0",
-    "@vue/cli-plugin-router": "~4.5.0",
-    "@vue/cli-plugin-vuex": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
-    "@vue/eslint-config-airbnb": "^5.0.2",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-vue": "^6.2.2",
-    "sass": "^1.26.5",
-    "sass-loader": "^8.0.2",
-    "vue-template-compiler": "^2.6.11"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "@vue/airbnb"
-    ],
-    "parserOptions": {
-      "parser": "babel-eslint"
-    },
-    "rules": {
-      "no-console": "off",
-      "import/prefer-default-export": "off",
-      "no-unused-vars": "off"
-    },
-    "globals": {
-      "error": true
-    }
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ]
+    "axios": "^0.24.0",
+    "cookie-parser": "^1.4.5",
+    "express": "^4.17.1",
+    "log4js": "^6.3.0",
+    "md5": "^2.3.0",
+    "mysql2": "^2.3.2",
+    "nodemon": "^2.0.14",
+    "path-to-regexp": "^6.2.0"
+  }
 }
