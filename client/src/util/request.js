@@ -2,9 +2,7 @@
 import axios from 'axios';
 import { Message } from 'element-ui';
 
-const service = axios.create({
-  timeout: 5000,
-});
+const service = axios.create();
 
 service.interceptors.request.use((config) => {
   const token = localStorage.getItem('adminToken');
@@ -19,18 +17,21 @@ service.interceptors.request.use((config) => {
 });
 
 // eslint-disable-next-line no-shadow
-service.interceptors.response.use((response) => {
-  if (response.headers.authentication) {
-    localStorage.adminToken = response.headers.authentication;
+service.interceptors.response.use((resp) => {
+  if (resp.headers.authentication) {
+    localStorage.setItem('adminToken', resp.headers.authentication);
   }
-  return response.data;
+  return resp.data;
 }, (error) => {
-  console.log(`err${error}`); // for debug
-  Message({
-    message: error.message,
-    type: 'error',
-    duration: 5 * 1000,
-  });
+  if (error.response.status === 403) {
+    localStorage.removeItem('adminToken');
+  } else {
+    Message({
+      message: error.message,
+      type: 'error',
+      duration: 5 * 1000,
+    });
+  }
   return Promise.reject(error);
 });
 

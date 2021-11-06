@@ -3,17 +3,17 @@ const express = require('express');
 const router = express.Router();
 const svgCaptcha = require('svg-captcha');
 
-router.get('captcha',(req,res) => {
-   const captcha = svgCaptcha.create({
-      size:4,
-      ignoreChars:'gf11',
-      noise:3,
-      color:true
-   });
+router.get('/api/captcha',(req,res) => {
+  let captcha = svgCaptcha.create({
+    size:4,
+    ignoreChars:'sf22',
+    noise:3,
+    color:true
+  });
 
-   res.session.captcha = captcha.text.toLowerCase();
-   res.type('svg');
-   res.status(200).send(captcha.data);
+  req.session.captcha = captcha.text.toLowerCase(); //把验证码中的文本存放到session中
+  res.type('svg');
+  res.status(200).send(captcha.data);
 })
 
 function validateCaptcha(req,res,next) {

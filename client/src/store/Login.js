@@ -1,3 +1,5 @@
+import * as login from '../http/loginService';
+
 export default {
   namespaced: true,
   state: {
@@ -24,6 +26,10 @@ export default {
     loginOut({ commit }) {
       commit('getUserinfo', {});
       return true;
+    },
+    async loginCode() {
+      // eslint-disable-next-line no-return-await
+      return await login.verifyCode();
     },
   },
 };

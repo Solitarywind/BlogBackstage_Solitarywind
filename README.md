@@ -1,6 +1,5 @@
  # BlogBackstage_Solitarywind
 
- ## Project setup
  ```
  npm install
  ```
@@ -41,7 +40,16 @@
           mavon-editor   npm install mavon-editor --save
           /** vuex 数据持久化 **/
           vuex-persistedstate   npm install vuex-persistedstate --save
+     
+     项目结构
+        client  vue工程代码（页面源码）
+        logs    服务日志（sql日志 和 api 请求日志）
+        models  数据库连接 和 构建  
+        public  vue（npm run build）打包后的静态页面
+        routes  express路由 (中间件)
+        logger.js  日志设置  
 
  富文本插件插件具体地址 https://github.com/hinesboy/mavonEditor
 
  富文本插件插件演示地址 http://www.mavoneditor.com/
+

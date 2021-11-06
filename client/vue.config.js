@@ -1,5 +1,8 @@
-// const path = require('path');
+const path = require('path');
 
+function resolve(dir) {
+  return path.join(__dirname, dir);
+}
 module.exports = {
   publicPath: '/', // 根域上下文目录
   outputDir: '../public', // 运行build
@@ -16,14 +19,18 @@ module.exports = {
     hotOnly: false,
     proxy: { // 代理
       '/api': {
-        target: 'http://localhost:1026/api/',
-        ws: true,
+        target: 'http://127.0.0.1:1026',
         changeOrigin: true,
-        pathRewrite: {
-          '^/api': '',
-        },
       },
-      before: (app) => {},
+    },
+  },
+  configureWebpack: {
+    // provide the app's title in webpack's name field, so that
+    // it can be accessed in index.html to inject the correct title.
+    resolve: {
+      alias: {
+        '@': resolve('src'),
+      },
     },
   },
 };

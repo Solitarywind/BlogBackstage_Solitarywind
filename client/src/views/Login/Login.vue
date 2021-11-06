@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 import VerifiCode from '../../components/Login/VerifiCode.vue';
 
 export default {
@@ -99,6 +99,9 @@ export default {
     };
   },
   methods: {
+    ...mapActions({
+      login: 'Login/login',
+    }),
     updataCode(val) {
       this.vifiCode = val;
     },
@@ -115,7 +118,7 @@ export default {
               type: 'error',
             });
           } else {
-            const status = await this.$store.dispatch('Login/login', loginUser);
+            const status = await this.login(loginUser);
             if (status) {
               this.$toast({
                 msg: '登录成功',
