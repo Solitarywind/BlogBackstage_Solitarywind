@@ -1,31 +1,51 @@
 let express = require('express');
 let app = express();
 let cors = require('cors');
+let session = require('express-session');
+const history = require("connect-history-api-fallback");
+app.use(history());
 
 //设置session
-app.use(require('express-session')({secret:'gufeng'}));
+app.use(session(
+  {
+    secret:'gufeng',
+    resave: false,
+    saveUninitialized: true
+  }));
 
 //引入静态文件
 const path = require('path');
 const staticRoot = path.resolve(__dirname,'../public');
 app.use(express.static(staticRoot));
 
-//白名单
-const whiteList = ['null', "http://localhost:1026"];
-app.use(cors({
-  origin(origin,callback){
-    if (!origin) {
-      callback(null, "*");
-      return;
-    }
-    if(whiteList.includes(origin)){
-      callback(null,origin);
-    }else{
-      callback(new Error('not allowed'))
-    }
-  },
-  credentials:true
-}));
+// //白名单
+// const whiteList = ['null', "http://localhost:1026","http://127.0.0.1:1026","http://192.168.1.3:8080"];
+// app.use(cors({
+//   origin(origin,callback){
+//     if (!origin) {
+//       callback(null, "*");
+//       return;
+//     }
+//     if(whiteList.includes(origin)){
+//       callback(null,origin);
+//     }else{
+//       callback(new Error('not allowed'))
+//     }
+//   },
+//   credentials:true
+// }));
+app.use(
+  cors({
+    origin(origin, callback) {
+      if (!origin) {
+        callback(null, "*");
+        return;
+      }
+      callback(null, origin);
+    },
+    credentials: true,
+  })
+);
 
 //cookie 中间件
 const cookieParser = require('cookie-parser');
@@ -33,8 +53,6 @@ app.use(cookieParser());
 
 //token 中间件
 app.use(require('./tokenMiddleware'))
-
-app.use(require('./captchaMid'));//验证码
 
 //api 日志
 app.use(require('./apiLogger'));
@@ -44,6 +62,8 @@ app.use(express.urlencoded({ extended: true }));
 
 // 解析 application/json 格式的请求体
 app.use(express.json());
+
+app.use(require('./captchaMid'));//验证码
 
 //接口
 app.use('/api/admin',require('./api/admin'))

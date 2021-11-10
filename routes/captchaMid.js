@@ -2,7 +2,6 @@
 const express = require('express');
 const router = express.Router();
 const svgCaptcha = require('svg-captcha');
-
 router.get('/api/captcha',(req,res) => {
   let captcha = svgCaptcha.create({
     size:4,
@@ -22,7 +21,7 @@ function validateCaptcha(req,res,next) {
     if(reqCaptcha !== req.session.captcha){
        //验证码有问题
        res.send({
-         code:401,
+         code:403, 
          msg:'验证码有问题'
        })
     }else{
@@ -31,7 +30,7 @@ function validateCaptcha(req,res,next) {
     req.session.captcha = "";
 }
 
-function captchaHandler(req,res,next) {
+function captchaHandler(req, res, next) {
    if('captcha' in req.body){
      validateCaptcha(req,res,next);
    }else{
@@ -39,6 +38,6 @@ function captchaHandler(req,res,next) {
    }
 }
 
-router.post('*',captchaHandler);
+router.post('/api/admin/login',captchaHandler);
 
 module.exports = router;

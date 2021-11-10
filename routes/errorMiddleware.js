@@ -3,6 +3,7 @@ const getMsg = require('./getSendResult');
 const multer = require('multer');
 
 module.exports = (err,req,res,next) => {
+  console.log(err);
    if(err){
      if(err instanceof  multer.MulterError){
        res.status(200).send(getMsg.getErr(err.msg));

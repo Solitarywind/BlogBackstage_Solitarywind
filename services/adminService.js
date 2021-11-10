@@ -1,11 +1,15 @@
 const Admin = require('../models/Admin');
 const md5 = require('md5');
-let attributes =  ['loginAccount','avator','nickName','sex','token']
+let attributes =  ['id','loginAccount','avator','nickName','sex','token']
 //注册
 exports.addAdmin = async (adminObj) =>  {
   adminObj.loginPwd = md5(adminObj.loginPwd);
-  const ins = await Admin.create(adminObj);
-  return ins.toJSON();
+  await Admin.create(adminObj);
+  return {
+    code:0,
+    msg:'注册成功',
+    data:''
+  };
 };
 
 //登录

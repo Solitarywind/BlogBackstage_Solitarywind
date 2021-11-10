@@ -3,14 +3,14 @@
     <el-upload class="uploader"
                action="https://jsonplaceholder.typicode.com/posts/"
                :show-file-list="false">
-      <img :src="avatar" class="avatr" alt="">
+      <img :src="avator" class="avatr" alt="">
     </el-upload>
     <el-form label-width="100px">
       <el-form-item label="昵称">
-        <el-input class="inputItem" placeholder="请输入昵称" v-model="accountName"/>
+        <el-input class="inputItem" placeholder="请输入昵称" v-model="nickName"/>
       </el-form-item>
       <el-form-item label="账号">
-        <el-input class="inputItem" placeholder="请输入账号" v-model="account"/>
+        <el-input class="inputItem" placeholder="请输入账号" v-model="loginAccount"/>
       </el-form-item>
       <el-form-item label="密码">
         <el-input class="inputItem" placeholder="请输入密码" v-model.trim="password"/>
@@ -31,21 +31,23 @@ export default {
   },
   data() {
     return {
-      avatar: 'https://himg.bdimg.com/sys/portrait/item/wise.1.fb57baf7.XesiFWlM5iQywMOK1frD0Q.jpg?time=1804',
+      avator: '',
       password: '',
-      account: '',
-      accountName: '',
+      nickName: '',
+      loginAccount: '',
     };
   },
   mounted() {
-    this.accountName = this.userinfo.account;
+    this.nickName = this.userinfo.nickName;
+    this.avator = this.userinfo.avator || 'https://himg.bdimg.com/sys/portrait/item/wise.1.fb57baf7.XesiFWlM5iQywMOK1frD0Q.jpg?time=1804';
+    this.loginAccount = this.userinfo.loginAccount;
   },
   methods: {
     Tocomfirm() {
       const {
-        password, accountName, account,
+        password, accountName, account, avator,
       } = this;
-      console.log(password, accountName, account);
+      console.log(password, accountName, account, avator);
     },
   },
 };

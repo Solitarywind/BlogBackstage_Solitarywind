@@ -1,0 +1,482 @@
+sql [2021-11-11 00:01:20] [INFO]: Executing (default): CREATE TABLE IF NOT EXISTS `Admins` (`id` INTEGER NOT NULL auto_increment , `loginAccount` VARCHAR(255) NOT NULL, `loginPwd` VARCHAR(255) NOT NULL, `avator` VARCHAR(255) DEFAULT 'https://himg.bdimg.com/sys/portrait/item/wise.1.fb57baf7.XesiFWlM5iQywMOK1frD0Q.jpg?time=1804', `nickName` VARCHAR(255), `sex` TINYINT(1), `token` VARCHAR(255), `creatTime` DATETIME NOT NULL, `updateTime` DATETIME NOT NULL, `deleteTime` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+
+sql [2021-11-11 00:01:20] [INFO]: Executing (default): SHOW FULL COLUMNS FROM `Admins`;
+
+sql [2021-11-11 00:01:20] [INFO]: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'Admins' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='blogWind' AND REFERENCED_TABLE_NAME IS NOT NULL;
+
+sql [2021-11-11 00:01:20] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `loginAccount` `loginAccount` VARCHAR(255) NOT NULL;
+
+sql [2021-11-11 00:01:21] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `loginPwd` `loginPwd` VARCHAR(255) NOT NULL;
+
+sql [2021-11-11 00:01:21] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `avator` `avator` VARCHAR(255) DEFAULT 'https://himg.bdimg.com/sys/portrait/item/wise.1.fb57baf7.XesiFWlM5iQywMOK1frD0Q.jpg?time=1804';
+
+sql [2021-11-11 00:01:21] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `nickName` `nickName` VARCHAR(255);
+
+sql [2021-11-11 00:01:21] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `sex` `sex` TINYINT(1);
+
+sql [2021-11-11 00:01:21] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `token` `token` VARCHAR(255);
+
+sql [2021-11-11 00:01:21] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `creatTime` `creatTime` DATETIME NOT NULL;
+
+sql [2021-11-11 00:01:22] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `updateTime` `updateTime` DATETIME NOT NULL;
+
+sql [2021-11-11 00:01:22] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `deleteTime` `deleteTime` DATETIME;
+
+sql [2021-11-11 00:01:23] [INFO]: Executing (default): SHOW INDEX FROM `Admins`
+
+sql [2021-11-11 00:09:26] [INFO]: Executing (default): CREATE TABLE IF NOT EXISTS `Admins` (`id` INTEGER NOT NULL auto_increment , `loginAccount` VARCHAR(255) NOT NULL, `loginPwd` VARCHAR(255) NOT NULL, `avator` VARCHAR(255) DEFAULT 'https://himg.bdimg.com/sys/portrait/item/wise.1.fb57baf7.XesiFWlM5iQywMOK1frD0Q.jpg?time=1804', `nickName` VARCHAR(255), `sex` TINYINT(1), `token` VARCHAR(255), `creatTime` DATETIME NOT NULL, `updateTime` DATETIME NOT NULL, `deleteTime` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+
+sql [2021-11-11 00:09:26] [INFO]: Executing (default): SHOW FULL COLUMNS FROM `Admins`;
+
+sql [2021-11-11 00:09:26] [INFO]: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'Admins' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='blogWind' AND REFERENCED_TABLE_NAME IS NOT NULL;
+
+sql [2021-11-11 00:09:26] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `loginAccount` `loginAccount` VARCHAR(255) NOT NULL;
+
+sql [2021-11-11 00:09:26] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `loginPwd` `loginPwd` VARCHAR(255) NOT NULL;
+
+sql [2021-11-11 00:09:27] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `avator` `avator` VARCHAR(255) DEFAULT 'https://himg.bdimg.com/sys/portrait/item/wise.1.fb57baf7.XesiFWlM5iQywMOK1frD0Q.jpg?time=1804';
+
+sql [2021-11-11 00:09:27] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `nickName` `nickName` VARCHAR(255);
+
+sql [2021-11-11 00:09:27] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `sex` `sex` TINYINT(1);
+
+sql [2021-11-11 00:09:28] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `token` `token` VARCHAR(255);
+
+sql [2021-11-11 00:09:28] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `creatTime` `creatTime` DATETIME NOT NULL;
+
+sql [2021-11-11 00:09:28] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `updateTime` `updateTime` DATETIME NOT NULL;
+
+sql [2021-11-11 00:09:28] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `deleteTime` `deleteTime` DATETIME;
+
+sql [2021-11-11 00:09:28] [INFO]: Executing (default): SHOW INDEX FROM `Admins`
+
+sql [2021-11-11 00:12:18] [INFO]: Executing (default): CREATE TABLE IF NOT EXISTS `Admins` (`id` INTEGER NOT NULL auto_increment , `loginAccount` VARCHAR(255) NOT NULL, `loginPwd` VARCHAR(255) NOT NULL, `avator` VARCHAR(255) DEFAULT 'https://himg.bdimg.com/sys/portrait/item/wise.1.fb57baf7.XesiFWlM5iQywMOK1frD0Q.jpg?time=1804', `nickName` VARCHAR(255), `sex` TINYINT(1), `token` VARCHAR(255), `creatTime` DATETIME NOT NULL, `updateTime` DATETIME NOT NULL, `deleteTime` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+
+sql [2021-11-11 00:12:18] [INFO]: Executing (default): SHOW FULL COLUMNS FROM `Admins`;
+
+sql [2021-11-11 00:12:18] [INFO]: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'Admins' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='blogWind' AND REFERENCED_TABLE_NAME IS NOT NULL;
+
+sql [2021-11-11 00:12:18] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `loginAccount` `loginAccount` VARCHAR(255) NOT NULL;
+
+sql [2021-11-11 00:12:18] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `loginPwd` `loginPwd` VARCHAR(255) NOT NULL;
+
+sql [2021-11-11 00:12:18] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `avator` `avator` VARCHAR(255) DEFAULT 'https://himg.bdimg.com/sys/portrait/item/wise.1.fb57baf7.XesiFWlM5iQywMOK1frD0Q.jpg?time=1804';
+
+sql [2021-11-11 00:12:18] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `nickName` `nickName` VARCHAR(255);
+
+sql [2021-11-11 00:12:18] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `sex` `sex` TINYINT(1);
+
+sql [2021-11-11 00:12:19] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `token` `token` VARCHAR(255);
+
+sql [2021-11-11 00:12:19] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `creatTime` `creatTime` DATETIME NOT NULL;
+
+sql [2021-11-11 00:12:19] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `updateTime` `updateTime` DATETIME NOT NULL;
+
+sql [2021-11-11 00:12:20] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `deleteTime` `deleteTime` DATETIME;
+
+sql [2021-11-11 00:12:20] [INFO]: Executing (default): SHOW INDEX FROM `Admins`
+
+sql [2021-11-11 00:12:45] [INFO]: Executing (default): CREATE TABLE IF NOT EXISTS `Admins` (`id` INTEGER NOT NULL auto_increment , `loginAccount` VARCHAR(255) NOT NULL, `loginPwd` VARCHAR(255) NOT NULL, `avator` VARCHAR(255) DEFAULT 'https://himg.bdimg.com/sys/portrait/item/wise.1.fb57baf7.XesiFWlM5iQywMOK1frD0Q.jpg?time=1804', `nickName` VARCHAR(255), `sex` TINYINT(1), `token` VARCHAR(255), `creatTime` DATETIME NOT NULL, `updateTime` DATETIME NOT NULL, `deleteTime` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+
+sql [2021-11-11 00:12:45] [INFO]: Executing (default): SHOW FULL COLUMNS FROM `Admins`;
+
+sql [2021-11-11 00:12:45] [INFO]: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'Admins' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='blogWind' AND REFERENCED_TABLE_NAME IS NOT NULL;
+
+sql [2021-11-11 00:12:45] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `loginAccount` `loginAccount` VARCHAR(255) NOT NULL;
+
+sql [2021-11-11 00:12:45] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `loginPwd` `loginPwd` VARCHAR(255) NOT NULL;
+
+sql [2021-11-11 00:12:45] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `avator` `avator` VARCHAR(255) DEFAULT 'https://himg.bdimg.com/sys/portrait/item/wise.1.fb57baf7.XesiFWlM5iQywMOK1frD0Q.jpg?time=1804';
+
+sql [2021-11-11 00:12:45] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `nickName` `nickName` VARCHAR(255);
+
+sql [2021-11-11 00:12:46] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `sex` `sex` TINYINT(1);
+
+sql [2021-11-11 00:12:46] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `token` `token` VARCHAR(255);
+
+sql [2021-11-11 00:12:46] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `creatTime` `creatTime` DATETIME NOT NULL;
+
+sql [2021-11-11 00:12:46] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `updateTime` `updateTime` DATETIME NOT NULL;
+
+sql [2021-11-11 00:12:47] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `deleteTime` `deleteTime` DATETIME;
+
+sql [2021-11-11 00:12:47] [INFO]: Executing (default): SHOW INDEX FROM `Admins`
+
+sql [2021-11-11 00:14:26] [INFO]: Executing (default): CREATE TABLE IF NOT EXISTS `Admins` (`id` INTEGER NOT NULL auto_increment , `loginAccount` VARCHAR(255) NOT NULL, `loginPwd` VARCHAR(255) NOT NULL, `avator` VARCHAR(255) DEFAULT 'https://himg.bdimg.com/sys/portrait/item/wise.1.fb57baf7.XesiFWlM5iQywMOK1frD0Q.jpg?time=1804', `nickName` VARCHAR(255), `sex` TINYINT(1), `token` VARCHAR(255), `creatTime` DATETIME NOT NULL, `updateTime` DATETIME NOT NULL, `deleteTime` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+
+sql [2021-11-11 00:14:26] [INFO]: Executing (default): SHOW FULL COLUMNS FROM `Admins`;
+
+sql [2021-11-11 00:14:26] [INFO]: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'Admins' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='blogWind' AND REFERENCED_TABLE_NAME IS NOT NULL;
+
+sql [2021-11-11 00:14:26] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `loginAccount` `loginAccount` VARCHAR(255) NOT NULL;
+
+sql [2021-11-11 00:14:26] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `loginPwd` `loginPwd` VARCHAR(255) NOT NULL;
+
+sql [2021-11-11 00:14:26] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `avator` `avator` VARCHAR(255) DEFAULT 'https://himg.bdimg.com/sys/portrait/item/wise.1.fb57baf7.XesiFWlM5iQywMOK1frD0Q.jpg?time=1804';
+
+sql [2021-11-11 00:14:26] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `nickName` `nickName` VARCHAR(255);
+
+sql [2021-11-11 00:14:28] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `sex` `sex` TINYINT(1);
+
+sql [2021-11-11 00:14:28] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `token` `token` VARCHAR(255);
+
+sql [2021-11-11 00:14:28] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `creatTime` `creatTime` DATETIME NOT NULL;
+
+sql [2021-11-11 00:14:28] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `updateTime` `updateTime` DATETIME NOT NULL;
+
+sql [2021-11-11 00:14:28] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `deleteTime` `deleteTime` DATETIME;
+
+sql [2021-11-11 00:14:29] [INFO]: Executing (default): SHOW INDEX FROM `Admins`
+
+sql [2021-11-11 00:14:58] [INFO]: Executing (default): CREATE TABLE IF NOT EXISTS `Admins` (`id` INTEGER NOT NULL auto_increment , `loginAccount` VARCHAR(255) NOT NULL, `loginPwd` VARCHAR(255) NOT NULL, `avator` VARCHAR(255) DEFAULT 'https://himg.bdimg.com/sys/portrait/item/wise.1.fb57baf7.XesiFWlM5iQywMOK1frD0Q.jpg?time=1804', `nickName` VARCHAR(255), `sex` TINYINT(1), `token` VARCHAR(255), `creatTime` DATETIME NOT NULL, `updateTime` DATETIME NOT NULL, `deleteTime` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+
+sql [2021-11-11 00:14:58] [INFO]: Executing (default): SHOW FULL COLUMNS FROM `Admins`;
+
+sql [2021-11-11 00:14:58] [INFO]: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'Admins' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='blogWind' AND REFERENCED_TABLE_NAME IS NOT NULL;
+
+sql [2021-11-11 00:14:58] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `loginAccount` `loginAccount` VARCHAR(255) NOT NULL;
+
+sql [2021-11-11 00:14:58] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `loginPwd` `loginPwd` VARCHAR(255) NOT NULL;
+
+sql [2021-11-11 00:14:59] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `avator` `avator` VARCHAR(255) DEFAULT 'https://himg.bdimg.com/sys/portrait/item/wise.1.fb57baf7.XesiFWlM5iQywMOK1frD0Q.jpg?time=1804';
+
+sql [2021-11-11 00:14:59] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `nickName` `nickName` VARCHAR(255);
+
+sql [2021-11-11 00:14:59] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `sex` `sex` TINYINT(1);
+
+sql [2021-11-11 00:14:59] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `token` `token` VARCHAR(255);
+
+sql [2021-11-11 00:14:59] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `creatTime` `creatTime` DATETIME NOT NULL;
+
+sql [2021-11-11 00:14:59] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `updateTime` `updateTime` DATETIME NOT NULL;
+
+sql [2021-11-11 00:14:59] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `deleteTime` `deleteTime` DATETIME;
+
+sql [2021-11-11 00:15:00] [INFO]: Executing (default): SHOW INDEX FROM `Admins`
+
+sql [2021-11-11 00:16:01] [INFO]: Executing (default): CREATE TABLE IF NOT EXISTS `Admins` (`id` INTEGER NOT NULL auto_increment , `loginAccount` VARCHAR(255) NOT NULL, `loginPwd` VARCHAR(255) NOT NULL, `avator` VARCHAR(255) DEFAULT 'https://himg.bdimg.com/sys/portrait/item/wise.1.fb57baf7.XesiFWlM5iQywMOK1frD0Q.jpg?time=1804', `nickName` VARCHAR(255), `sex` TINYINT(1), `token` VARCHAR(255), `creatTime` DATETIME NOT NULL, `updateTime` DATETIME NOT NULL, `deleteTime` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+
+sql [2021-11-11 00:16:01] [INFO]: Executing (default): SHOW FULL COLUMNS FROM `Admins`;
+
+sql [2021-11-11 00:16:01] [INFO]: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'Admins' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='blogWind' AND REFERENCED_TABLE_NAME IS NOT NULL;
+
+sql [2021-11-11 00:16:01] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `loginAccount` `loginAccount` VARCHAR(255) NOT NULL;
+
+sql [2021-11-11 00:16:01] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `loginPwd` `loginPwd` VARCHAR(255) NOT NULL;
+
+sql [2021-11-11 00:16:01] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `avator` `avator` VARCHAR(255) DEFAULT 'https://himg.bdimg.com/sys/portrait/item/wise.1.fb57baf7.XesiFWlM5iQywMOK1frD0Q.jpg?time=1804';
+
+sql [2021-11-11 00:16:01] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `nickName` `nickName` VARCHAR(255);
+
+sql [2021-11-11 00:16:01] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `sex` `sex` TINYINT(1);
+
+sql [2021-11-11 00:16:02] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `token` `token` VARCHAR(255);
+
+sql [2021-11-11 00:16:02] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `creatTime` `creatTime` DATETIME NOT NULL;
+
+sql [2021-11-11 00:16:02] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `updateTime` `updateTime` DATETIME NOT NULL;
+
+sql [2021-11-11 00:16:02] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `deleteTime` `deleteTime` DATETIME;
+
+sql [2021-11-11 00:16:02] [INFO]: Executing (default): SHOW INDEX FROM `Admins`
+
+sql [2021-11-11 00:17:38] [INFO]: Executing (default): CREATE TABLE IF NOT EXISTS `Admins` (`id` INTEGER NOT NULL auto_increment , `loginAccount` VARCHAR(255) NOT NULL, `loginPwd` VARCHAR(255) NOT NULL, `avator` VARCHAR(255) DEFAULT 'https://himg.bdimg.com/sys/portrait/item/wise.1.fb57baf7.XesiFWlM5iQywMOK1frD0Q.jpg?time=1804', `nickName` VARCHAR(255), `sex` TINYINT(1), `token` VARCHAR(255), `creatTime` DATETIME NOT NULL, `updateTime` DATETIME NOT NULL, `deleteTime` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+
+sql [2021-11-11 00:17:38] [INFO]: Executing (default): SHOW FULL COLUMNS FROM `Admins`;
+
+sql [2021-11-11 00:17:38] [INFO]: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'Admins' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='blogWind' AND REFERENCED_TABLE_NAME IS NOT NULL;
+
+sql [2021-11-11 00:17:38] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `loginAccount` `loginAccount` VARCHAR(255) NOT NULL;
+
+sql [2021-11-11 00:17:38] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `loginPwd` `loginPwd` VARCHAR(255) NOT NULL;
+
+sql [2021-11-11 00:17:38] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `avator` `avator` VARCHAR(255) DEFAULT 'https://himg.bdimg.com/sys/portrait/item/wise.1.fb57baf7.XesiFWlM5iQywMOK1frD0Q.jpg?time=1804';
+
+sql [2021-11-11 00:17:38] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `nickName` `nickName` VARCHAR(255);
+
+sql [2021-11-11 00:17:38] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `sex` `sex` TINYINT(1);
+
+sql [2021-11-11 00:17:38] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `token` `token` VARCHAR(255);
+
+sql [2021-11-11 00:17:38] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `creatTime` `creatTime` DATETIME NOT NULL;
+
+sql [2021-11-11 00:17:39] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `updateTime` `updateTime` DATETIME NOT NULL;
+
+sql [2021-11-11 00:17:39] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `deleteTime` `deleteTime` DATETIME;
+
+sql [2021-11-11 00:17:39] [INFO]: Executing (default): SHOW INDEX FROM `Admins`
+
+sql [2021-11-11 00:18:41] [INFO]: Executing (default): CREATE TABLE IF NOT EXISTS `Admins` (`id` INTEGER NOT NULL auto_increment , `loginAccount` VARCHAR(255) NOT NULL, `loginPwd` VARCHAR(255) NOT NULL, `avator` VARCHAR(255) DEFAULT 'https://himg.bdimg.com/sys/portrait/item/wise.1.fb57baf7.XesiFWlM5iQywMOK1frD0Q.jpg?time=1804', `nickName` VARCHAR(255), `sex` TINYINT(1), `token` VARCHAR(255), `creatTime` DATETIME NOT NULL, `updateTime` DATETIME NOT NULL, `deleteTime` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+
+sql [2021-11-11 00:18:41] [INFO]: Executing (default): SHOW FULL COLUMNS FROM `Admins`;
+
+sql [2021-11-11 00:18:41] [INFO]: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'Admins' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='blogWind' AND REFERENCED_TABLE_NAME IS NOT NULL;
+
+sql [2021-11-11 00:18:41] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `loginAccount` `loginAccount` VARCHAR(255) NOT NULL;
+
+sql [2021-11-11 00:18:41] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `loginPwd` `loginPwd` VARCHAR(255) NOT NULL;
+
+sql [2021-11-11 00:18:41] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `avator` `avator` VARCHAR(255) DEFAULT 'https://himg.bdimg.com/sys/portrait/item/wise.1.fb57baf7.XesiFWlM5iQywMOK1frD0Q.jpg?time=1804';
+
+sql [2021-11-11 00:18:41] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `nickName` `nickName` VARCHAR(255);
+
+sql [2021-11-11 00:18:41] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `sex` `sex` TINYINT(1);
+
+sql [2021-11-11 00:18:41] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `token` `token` VARCHAR(255);
+
+sql [2021-11-11 00:18:41] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `creatTime` `creatTime` DATETIME NOT NULL;
+
+sql [2021-11-11 00:18:42] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `updateTime` `updateTime` DATETIME NOT NULL;
+
+sql [2021-11-11 00:18:42] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `deleteTime` `deleteTime` DATETIME;
+
+sql [2021-11-11 00:18:42] [INFO]: Executing (default): SHOW INDEX FROM `Admins`
+
+sql [2021-11-11 00:19:00] [INFO]: Executing (default): CREATE TABLE IF NOT EXISTS `Admins` (`id` INTEGER NOT NULL auto_increment , `loginAccount` VARCHAR(255) NOT NULL, `loginPwd` VARCHAR(255) NOT NULL, `avator` VARCHAR(255) DEFAULT 'https://himg.bdimg.com/sys/portrait/item/wise.1.fb57baf7.XesiFWlM5iQywMOK1frD0Q.jpg?time=1804', `nickName` VARCHAR(255), `sex` TINYINT(1), `token` VARCHAR(255), `creatTime` DATETIME NOT NULL, `updateTime` DATETIME NOT NULL, `deleteTime` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+
+sql [2021-11-11 00:19:00] [INFO]: Executing (default): SHOW FULL COLUMNS FROM `Admins`;
+
+sql [2021-11-11 00:19:00] [INFO]: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'Admins' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='blogWind' AND REFERENCED_TABLE_NAME IS NOT NULL;
+
+sql [2021-11-11 00:19:00] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `loginAccount` `loginAccount` VARCHAR(255) NOT NULL;
+
+sql [2021-11-11 00:19:00] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `loginPwd` `loginPwd` VARCHAR(255) NOT NULL;
+
+sql [2021-11-11 00:19:01] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `avator` `avator` VARCHAR(255) DEFAULT 'https://himg.bdimg.com/sys/portrait/item/wise.1.fb57baf7.XesiFWlM5iQywMOK1frD0Q.jpg?time=1804';
+
+sql [2021-11-11 00:19:01] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `nickName` `nickName` VARCHAR(255);
+
+sql [2021-11-11 00:19:01] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `sex` `sex` TINYINT(1);
+
+sql [2021-11-11 00:19:01] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `token` `token` VARCHAR(255);
+
+sql [2021-11-11 00:19:01] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `creatTime` `creatTime` DATETIME NOT NULL;
+
+sql [2021-11-11 00:19:02] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `updateTime` `updateTime` DATETIME NOT NULL;
+
+sql [2021-11-11 00:19:02] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `deleteTime` `deleteTime` DATETIME;
+
+sql [2021-11-11 00:19:02] [INFO]: Executing (default): SHOW INDEX FROM `Admins`
+
+sql [2021-11-11 00:19:49] [INFO]: Executing (default): SELECT `id`, `loginAccount`, `avator`, `nickName`, `sex`, `token` FROM `Admins` AS `Admin` WHERE (`Admin`.`deleteTime` IS NULL AND (`Admin`.`loginAccount` = 'gufeng' AND `Admin`.`loginPwd` = 'e10adc3949ba59abbe56e057f20f883e')) LIMIT 1;
+
+sql [2021-11-11 00:20:05] [INFO]: Executing (default): CREATE TABLE IF NOT EXISTS `Admins` (`id` INTEGER NOT NULL auto_increment , `loginAccount` VARCHAR(255) NOT NULL, `loginPwd` VARCHAR(255) NOT NULL, `avator` VARCHAR(255) DEFAULT 'https://himg.bdimg.com/sys/portrait/item/wise.1.fb57baf7.XesiFWlM5iQywMOK1frD0Q.jpg?time=1804', `nickName` VARCHAR(255), `sex` TINYINT(1), `token` VARCHAR(255), `creatTime` DATETIME NOT NULL, `updateTime` DATETIME NOT NULL, `deleteTime` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+
+sql [2021-11-11 00:20:05] [INFO]: Executing (default): SHOW FULL COLUMNS FROM `Admins`;
+
+sql [2021-11-11 00:20:05] [INFO]: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'Admins' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='blogWind' AND REFERENCED_TABLE_NAME IS NOT NULL;
+
+sql [2021-11-11 00:20:05] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `loginAccount` `loginAccount` VARCHAR(255) NOT NULL;
+
+sql [2021-11-11 00:20:05] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `loginPwd` `loginPwd` VARCHAR(255) NOT NULL;
+
+sql [2021-11-11 00:20:05] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `avator` `avator` VARCHAR(255) DEFAULT 'https://himg.bdimg.com/sys/portrait/item/wise.1.fb57baf7.XesiFWlM5iQywMOK1frD0Q.jpg?time=1804';
+
+sql [2021-11-11 00:20:05] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `nickName` `nickName` VARCHAR(255);
+
+sql [2021-11-11 00:20:05] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `sex` `sex` TINYINT(1);
+
+sql [2021-11-11 00:20:05] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `token` `token` VARCHAR(255);
+
+sql [2021-11-11 00:20:05] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `creatTime` `creatTime` DATETIME NOT NULL;
+
+sql [2021-11-11 00:20:06] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `updateTime` `updateTime` DATETIME NOT NULL;
+
+sql [2021-11-11 00:20:06] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `deleteTime` `deleteTime` DATETIME;
+
+sql [2021-11-11 00:20:06] [INFO]: Executing (default): SHOW INDEX FROM `Admins`
+
+sql [2021-11-11 00:20:27] [INFO]: Executing (default): SELECT `id`, `loginAccount`, `avator`, `nickName`, `sex`, `token` FROM `Admins` AS `Admin` WHERE (`Admin`.`deleteTime` IS NULL AND (`Admin`.`loginAccount` = 'gufeng' AND `Admin`.`loginPwd` = 'e10adc3949ba59abbe56e057f20f883e')) LIMIT 1;
+
+sql [2021-11-11 00:20:53] [INFO]: Executing (default): CREATE TABLE IF NOT EXISTS `Admins` (`id` INTEGER NOT NULL auto_increment , `loginAccount` VARCHAR(255) NOT NULL, `loginPwd` VARCHAR(255) NOT NULL, `avator` VARCHAR(255) DEFAULT 'https://himg.bdimg.com/sys/portrait/item/wise.1.fb57baf7.XesiFWlM5iQywMOK1frD0Q.jpg?time=1804', `nickName` VARCHAR(255), `sex` TINYINT(1), `token` VARCHAR(255), `creatTime` DATETIME NOT NULL, `updateTime` DATETIME NOT NULL, `deleteTime` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+
+sql [2021-11-11 00:20:53] [INFO]: Executing (default): SHOW FULL COLUMNS FROM `Admins`;
+
+sql [2021-11-11 00:20:53] [INFO]: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'Admins' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='blogWind' AND REFERENCED_TABLE_NAME IS NOT NULL;
+
+sql [2021-11-11 00:20:53] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `loginAccount` `loginAccount` VARCHAR(255) NOT NULL;
+
+sql [2021-11-11 00:20:54] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `loginPwd` `loginPwd` VARCHAR(255) NOT NULL;
+
+sql [2021-11-11 00:20:54] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `avator` `avator` VARCHAR(255) DEFAULT 'https://himg.bdimg.com/sys/portrait/item/wise.1.fb57baf7.XesiFWlM5iQywMOK1frD0Q.jpg?time=1804';
+
+sql [2021-11-11 00:20:54] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `nickName` `nickName` VARCHAR(255);
+
+sql [2021-11-11 00:20:54] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `sex` `sex` TINYINT(1);
+
+sql [2021-11-11 00:20:54] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `token` `token` VARCHAR(255);
+
+sql [2021-11-11 00:20:55] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `creatTime` `creatTime` DATETIME NOT NULL;
+
+sql [2021-11-11 00:20:55] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `updateTime` `updateTime` DATETIME NOT NULL;
+
+sql [2021-11-11 00:20:55] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `deleteTime` `deleteTime` DATETIME;
+
+sql [2021-11-11 00:20:55] [INFO]: Executing (default): SHOW INDEX FROM `Admins`
+
+sql [2021-11-11 00:21:16] [INFO]: Executing (default): SELECT `id`, `loginAccount`, `avator`, `nickName`, `sex`, `token` FROM `Admins` AS `Admin` WHERE (`Admin`.`deleteTime` IS NULL AND (`Admin`.`loginAccount` = 'gufeng' AND `Admin`.`loginPwd` = 'e10adc3949ba59abbe56e057f20f883e')) LIMIT 1;
+
+sql [2021-11-11 00:22:30] [INFO]: Executing (default): CREATE TABLE IF NOT EXISTS `Admins` (`id` INTEGER NOT NULL auto_increment , `loginAccount` VARCHAR(255) NOT NULL, `loginPwd` VARCHAR(255) NOT NULL, `avator` VARCHAR(255) DEFAULT 'https://himg.bdimg.com/sys/portrait/item/wise.1.fb57baf7.XesiFWlM5iQywMOK1frD0Q.jpg?time=1804', `nickName` VARCHAR(255), `sex` TINYINT(1), `token` VARCHAR(255), `creatTime` DATETIME NOT NULL, `updateTime` DATETIME NOT NULL, `deleteTime` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+
+sql [2021-11-11 00:22:30] [INFO]: Executing (default): SHOW FULL COLUMNS FROM `Admins`;
+
+sql [2021-11-11 00:22:30] [INFO]: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'Admins' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='blogWind' AND REFERENCED_TABLE_NAME IS NOT NULL;
+
+sql [2021-11-11 00:22:30] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `loginAccount` `loginAccount` VARCHAR(255) NOT NULL;
+
+sql [2021-11-11 00:22:30] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `loginPwd` `loginPwd` VARCHAR(255) NOT NULL;
+
+sql [2021-11-11 00:22:30] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `avator` `avator` VARCHAR(255) DEFAULT 'https://himg.bdimg.com/sys/portrait/item/wise.1.fb57baf7.XesiFWlM5iQywMOK1frD0Q.jpg?time=1804';
+
+sql [2021-11-11 00:22:30] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `nickName` `nickName` VARCHAR(255);
+
+sql [2021-11-11 00:22:30] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `sex` `sex` TINYINT(1);
+
+sql [2021-11-11 00:22:31] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `token` `token` VARCHAR(255);
+
+sql [2021-11-11 00:22:31] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `creatTime` `creatTime` DATETIME NOT NULL;
+
+sql [2021-11-11 00:22:32] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `updateTime` `updateTime` DATETIME NOT NULL;
+
+sql [2021-11-11 00:22:32] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `deleteTime` `deleteTime` DATETIME;
+
+sql [2021-11-11 00:22:32] [INFO]: Executing (default): SHOW INDEX FROM `Admins`
+
+sql [2021-11-11 00:22:41] [INFO]: Executing (default): SELECT `id`, `loginAccount`, `avator`, `nickName`, `sex`, `token` FROM `Admins` AS `Admin` WHERE (`Admin`.`deleteTime` IS NULL AND (`Admin`.`loginAccount` = 'gufeng' AND `Admin`.`loginPwd` = 'e10adc3949ba59abbe56e057f20f883e')) LIMIT 1;
+
+sql [2021-11-11 00:23:46] [INFO]: Executing (default): CREATE TABLE IF NOT EXISTS `Admins` (`id` INTEGER NOT NULL auto_increment , `loginAccount` VARCHAR(255) NOT NULL, `loginPwd` VARCHAR(255) NOT NULL, `avator` VARCHAR(255) DEFAULT 'https://himg.bdimg.com/sys/portrait/item/wise.1.fb57baf7.XesiFWlM5iQywMOK1frD0Q.jpg?time=1804', `nickName` VARCHAR(255), `sex` TINYINT(1), `token` VARCHAR(255), `creatTime` DATETIME NOT NULL, `updateTime` DATETIME NOT NULL, `deleteTime` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+
+sql [2021-11-11 00:23:46] [INFO]: Executing (default): SHOW FULL COLUMNS FROM `Admins`;
+
+sql [2021-11-11 00:23:46] [INFO]: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'Admins' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='blogWind' AND REFERENCED_TABLE_NAME IS NOT NULL;
+
+sql [2021-11-11 00:23:46] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `loginAccount` `loginAccount` VARCHAR(255) NOT NULL;
+
+sql [2021-11-11 00:23:46] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `loginPwd` `loginPwd` VARCHAR(255) NOT NULL;
+
+sql [2021-11-11 00:23:46] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `avator` `avator` VARCHAR(255) DEFAULT 'https://himg.bdimg.com/sys/portrait/item/wise.1.fb57baf7.XesiFWlM5iQywMOK1frD0Q.jpg?time=1804';
+
+sql [2021-11-11 00:23:47] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `nickName` `nickName` VARCHAR(255);
+
+sql [2021-11-11 00:23:47] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `sex` `sex` TINYINT(1);
+
+sql [2021-11-11 00:23:47] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `token` `token` VARCHAR(255);
+
+sql [2021-11-11 00:23:48] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `creatTime` `creatTime` DATETIME NOT NULL;
+
+sql [2021-11-11 00:23:48] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `updateTime` `updateTime` DATETIME NOT NULL;
+
+sql [2021-11-11 00:23:48] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `deleteTime` `deleteTime` DATETIME;
+
+sql [2021-11-11 00:23:48] [INFO]: Executing (default): SHOW INDEX FROM `Admins`
+
+sql [2021-11-11 00:24:13] [INFO]: Executing (default): SELECT `id`, `loginAccount`, `avator`, `nickName`, `sex`, `token` FROM `Admins` AS `Admin` WHERE (`Admin`.`deleteTime` IS NULL AND (`Admin`.`loginAccount` = 'gufeng' AND `Admin`.`loginPwd` = 'e10adc3949ba59abbe56e057f20f883e')) LIMIT 1;
+
+sql [2021-11-11 00:24:39] [INFO]: Executing (default): CREATE TABLE IF NOT EXISTS `Admins` (`id` INTEGER NOT NULL auto_increment , `loginAccount` VARCHAR(255) NOT NULL, `loginPwd` VARCHAR(255) NOT NULL, `avator` VARCHAR(255) DEFAULT 'https://himg.bdimg.com/sys/portrait/item/wise.1.fb57baf7.XesiFWlM5iQywMOK1frD0Q.jpg?time=1804', `nickName` VARCHAR(255), `sex` TINYINT(1), `token` VARCHAR(255), `creatTime` DATETIME NOT NULL, `updateTime` DATETIME NOT NULL, `deleteTime` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+
+sql [2021-11-11 00:24:39] [INFO]: Executing (default): SHOW FULL COLUMNS FROM `Admins`;
+
+sql [2021-11-11 00:24:39] [INFO]: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'Admins' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='blogWind' AND REFERENCED_TABLE_NAME IS NOT NULL;
+
+sql [2021-11-11 00:24:39] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `loginAccount` `loginAccount` VARCHAR(255) NOT NULL;
+
+sql [2021-11-11 00:24:39] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `loginPwd` `loginPwd` VARCHAR(255) NOT NULL;
+
+sql [2021-11-11 00:24:39] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `avator` `avator` VARCHAR(255) DEFAULT 'https://himg.bdimg.com/sys/portrait/item/wise.1.fb57baf7.XesiFWlM5iQywMOK1frD0Q.jpg?time=1804';
+
+sql [2021-11-11 00:24:39] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `nickName` `nickName` VARCHAR(255);
+
+sql [2021-11-11 00:24:39] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `sex` `sex` TINYINT(1);
+
+sql [2021-11-11 00:24:39] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `token` `token` VARCHAR(255);
+
+sql [2021-11-11 00:24:40] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `creatTime` `creatTime` DATETIME NOT NULL;
+
+sql [2021-11-11 00:24:40] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `updateTime` `updateTime` DATETIME NOT NULL;
+
+sql [2021-11-11 00:24:40] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `deleteTime` `deleteTime` DATETIME;
+
+sql [2021-11-11 00:24:40] [INFO]: Executing (default): SHOW INDEX FROM `Admins`
+
+sql [2021-11-11 00:25:08] [INFO]: Executing (default): SELECT `id`, `loginAccount`, `avator`, `nickName`, `sex`, `token` FROM `Admins` AS `Admin` WHERE (`Admin`.`deleteTime` IS NULL AND (`Admin`.`loginAccount` = 'gufeng' AND `Admin`.`loginPwd` = 'e10adc3949ba59abbe56e057f20f883e')) LIMIT 1;
+
+sql [2021-11-11 00:27:04] [INFO]: Executing (default): CREATE TABLE IF NOT EXISTS `Admins` (`id` INTEGER NOT NULL auto_increment , `loginAccount` VARCHAR(255) NOT NULL, `loginPwd` VARCHAR(255) NOT NULL, `avator` VARCHAR(255) DEFAULT 'https://himg.bdimg.com/sys/portrait/item/wise.1.fb57baf7.XesiFWlM5iQywMOK1frD0Q.jpg?time=1804', `nickName` VARCHAR(255), `sex` TINYINT(1), `token` VARCHAR(255), `creatTime` DATETIME NOT NULL, `updateTime` DATETIME NOT NULL, `deleteTime` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+
+sql [2021-11-11 00:27:04] [INFO]: Executing (default): SHOW FULL COLUMNS FROM `Admins`;
+
+sql [2021-11-11 00:27:04] [INFO]: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'Admins' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='blogWind' AND REFERENCED_TABLE_NAME IS NOT NULL;
+
+sql [2021-11-11 00:27:04] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `loginAccount` `loginAccount` VARCHAR(255) NOT NULL;
+
+sql [2021-11-11 00:27:05] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `loginPwd` `loginPwd` VARCHAR(255) NOT NULL;
+
+sql [2021-11-11 00:27:05] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `avator` `avator` VARCHAR(255) DEFAULT 'https://himg.bdimg.com/sys/portrait/item/wise.1.fb57baf7.XesiFWlM5iQywMOK1frD0Q.jpg?time=1804';
+
+sql [2021-11-11 00:27:05] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `nickName` `nickName` VARCHAR(255);
+
+sql [2021-11-11 00:27:05] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `sex` `sex` TINYINT(1);
+
+sql [2021-11-11 00:27:06] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `token` `token` VARCHAR(255);
+
+sql [2021-11-11 00:27:06] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `creatTime` `creatTime` DATETIME NOT NULL;
+
+sql [2021-11-11 00:27:06] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `updateTime` `updateTime` DATETIME NOT NULL;
+
+sql [2021-11-11 00:27:06] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `deleteTime` `deleteTime` DATETIME;
+
+sql [2021-11-11 00:27:06] [INFO]: Executing (default): SHOW INDEX FROM `Admins`
+
+sql [2021-11-11 00:27:16] [INFO]: Executing (default): CREATE TABLE IF NOT EXISTS `Admins` (`id` INTEGER NOT NULL auto_increment , `loginAccount` VARCHAR(255) NOT NULL, `loginPwd` VARCHAR(255) NOT NULL, `avator` VARCHAR(255) DEFAULT 'https://himg.bdimg.com/sys/portrait/item/wise.1.fb57baf7.XesiFWlM5iQywMOK1frD0Q.jpg?time=1804', `nickName` VARCHAR(255), `sex` TINYINT(1), `token` VARCHAR(255), `creatTime` DATETIME NOT NULL, `updateTime` DATETIME NOT NULL, `deleteTime` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+
+sql [2021-11-11 00:27:16] [INFO]: Executing (default): SHOW FULL COLUMNS FROM `Admins`;
+
+sql [2021-11-11 00:27:16] [INFO]: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'Admins' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='blogWind' AND REFERENCED_TABLE_NAME IS NOT NULL;
+
+sql [2021-11-11 00:27:16] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `loginAccount` `loginAccount` VARCHAR(255) NOT NULL;
+
+sql [2021-11-11 00:27:16] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `loginPwd` `loginPwd` VARCHAR(255) NOT NULL;
+
+sql [2021-11-11 00:27:16] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `avator` `avator` VARCHAR(255) DEFAULT 'https://himg.bdimg.com/sys/portrait/item/wise.1.fb57baf7.XesiFWlM5iQywMOK1frD0Q.jpg?time=1804';
+
+sql [2021-11-11 00:27:16] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `nickName` `nickName` VARCHAR(255);
+
+sql [2021-11-11 00:27:16] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `sex` `sex` TINYINT(1);
+
+sql [2021-11-11 00:27:16] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `token` `token` VARCHAR(255);
+
+sql [2021-11-11 00:27:16] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `creatTime` `creatTime` DATETIME NOT NULL;
+
+sql [2021-11-11 00:27:17] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `updateTime` `updateTime` DATETIME NOT NULL;
+
+sql [2021-11-11 00:27:17] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `deleteTime` `deleteTime` DATETIME;
+
+sql [2021-11-11 00:27:17] [INFO]: Executing (default): SHOW INDEX FROM `Admins`
+
+sql [2021-11-11 00:28:53] [INFO]: Executing (default): CREATE TABLE IF NOT EXISTS `Admins` (`id` INTEGER NOT NULL auto_increment , `loginAccount` VARCHAR(255) NOT NULL, `loginPwd` VARCHAR(255) NOT NULL, `avator` VARCHAR(255) DEFAULT 'https://himg.bdimg.com/sys/portrait/item/wise.1.fb57baf7.XesiFWlM5iQywMOK1frD0Q.jpg?time=1804', `nickName` VARCHAR(255), `sex` TINYINT(1), `token` VARCHAR(255), `creatTime` DATETIME NOT NULL, `updateTime` DATETIME NOT NULL, `deleteTime` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+
+sql [2021-11-11 00:28:53] [INFO]: Executing (default): SHOW FULL COLUMNS FROM `Admins`;
+
+sql [2021-11-11 00:28:53] [INFO]: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'Admins' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='blogWind' AND REFERENCED_TABLE_NAME IS NOT NULL;
+
+sql [2021-11-11 00:28:53] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `loginAccount` `loginAccount` VARCHAR(255) NOT NULL;
+
+sql [2021-11-11 00:28:53] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `loginPwd` `loginPwd` VARCHAR(255) NOT NULL;
+
+sql [2021-11-11 00:28:53] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `avator` `avator` VARCHAR(255) DEFAULT 'https://himg.bdimg.com/sys/portrait/item/wise.1.fb57baf7.XesiFWlM5iQywMOK1frD0Q.jpg?time=1804';
+
+sql [2021-11-11 00:28:53] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `nickName` `nickName` VARCHAR(255);
+
+sql [2021-11-11 00:28:53] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `sex` `sex` TINYINT(1);
+
+sql [2021-11-11 00:28:54] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `token` `token` VARCHAR(255);
+
+sql [2021-11-11 00:28:54] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `creatTime` `creatTime` DATETIME NOT NULL;
+
+sql [2021-11-11 00:28:55] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `updateTime` `updateTime` DATETIME NOT NULL;
+
+sql [2021-11-11 00:28:55] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `deleteTime` `deleteTime` DATETIME;
+
+sql [2021-11-11 00:28:55] [INFO]: Executing (default): SHOW INDEX FROM `Admins`
+
+sql [2021-11-11 00:29:25] [INFO]: Executing (default): SELECT `id`, `loginAccount`, `avator`, `nickName`, `sex`, `token` FROM `Admins` AS `Admin` WHERE (`Admin`.`deleteTime` IS NULL AND (`Admin`.`loginAccount` = 'gufeng' AND `Admin`.`loginPwd` = 'e10adc3949ba59abbe56e057f20f883e')) LIMIT 1;
+

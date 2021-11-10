@@ -1,13 +1,13 @@
-import * as login from '../http/loginService';
+import { verifyCode, loginAdminn } from '../http/loginService';
 
 export default {
   namespaced: true,
   state: {
     userinfo: {},
     loginUser: {
-      account: '',
-      pass: '',
-      code: '',
+      loginAccount: '',
+      loginPwd: '',
+      captcha: '',
     }, // 登录操作
   },
   mutations: {
@@ -16,10 +16,13 @@ export default {
     },
   },
   actions: {
-    login({ commit }, userinfo) {
+    async login({ commit }, userinfo) {
       if (userinfo) {
-        commit('getUserinfo', userinfo);
-        return true;
+        const res = await loginAdminn(userinfo);
+        if (res.code === 0) {
+          commit('getUserinfo', res.data);
+        }
+        return res;
       }
       return false;
     },
@@ -29,7 +32,7 @@ export default {
     },
     async loginCode() {
       // eslint-disable-next-line no-return-await
-      return await login.verifyCode();
+      return await verifyCode();
     },
   },
 };

@@ -9,7 +9,7 @@ exports.getResult = (result) => {
   return {
     code: 0,
     msg: "",
-    data: result
+    data:result
   }
 };
 

@@ -6,19 +6,19 @@
           </div>
           <el-form :model="loginUser" status-icon :rules="loginRules"
            ref="ruleForm" label-width="80px" class="demo-ruleForm">
-            <el-form-item label="账号" prop="account">
+            <el-form-item label="账号" prop="loginAccount">
               <el-input class="elinput" placeholder="请输入账号" clearable
-               v-model.trim="loginUser.account" autocomplete="off" />
+               v-model.trim="loginUser.loginAccount" autocomplete="off" />
             </el-form-item>
-            <el-form-item label="密码" prop="pass">
+            <el-form-item label="密码" prop="loginPwd">
               <el-input class="elinput" type="password" placeholder="请输入密码"
-               v-model="loginUser.pass" clearable  autocomplete="off" />
+               v-model="loginUser.loginPwd" show-password clearable  autocomplete="off" />
             </el-form-item>
-            <el-form-item  label="验证码" prop="code">
+            <el-form-item  label="验证码" prop="captcha">
               <div class="elitem">
                 <el-input class="elcode" placeholder="请输入验证码"
-                          v-model="loginUser.code" clearable />
-                <VerifiCode ref="ficode" @updataCode="updataCode"/>
+                          v-model="loginUser.captcha" clearable />
+                <VerifiCode ref="ficode"/>
               </div>
             </el-form-item>
             <el-form-item>
@@ -102,35 +102,26 @@ export default {
     ...mapActions({
       login: 'Login/login',
     }),
-    updataCode(val) {
-      this.vifiCode = val;
-    },
     resetLogin(formName) {
       this.$refs[formName].resetFields();
     },
     sumbitLogin(formName) {
       this.$refs[formName].validate(async (valid) => {
         if (valid) {
-          const { loginUser, vifiCode } = this;
-          if (vifiCode.toLowerCase() !== loginUser.code.toLowerCase()) {
+          const { loginUser } = this;
+          const status = await this.login(loginUser);
+          if (status.code === 0) {
             this.$toast({
-              msg: '验证码输入有误',
+              msg: '登录成功',
+              type: 'success',
+            });
+            this.$store.commit('loginUser', '');
+            this.$router.push('/');
+          } else {
+            this.$toast({
+              msg: '登录失败',
               type: 'error',
             });
-          } else {
-            const status = await this.login(loginUser);
-            if (status) {
-              this.$toast({
-                msg: '登录成功',
-                type: 'success',
-              });
-              this.$router.push('/');
-            } else {
-              this.$toast({
-                msg: '登录失败',
-                type: 'error',
-              });
-            }
           }
           return false;
         }

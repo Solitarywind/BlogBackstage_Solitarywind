@@ -15,7 +15,7 @@ validate.extend(validate.validators.datetime,{
       formats = ['YYYY-MM-DD','YYYY/MM/DD','YYYY-M-D','x']
     }
     return +moment.utc(value,formats,true)
-  },
+  }, 
   /**
    *  用户显示错误信息，显示字符串
    */
