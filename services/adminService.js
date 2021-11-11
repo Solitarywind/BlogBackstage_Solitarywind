@@ -24,8 +24,13 @@ exports.login = async (loginAccount,loginPwd) => {
    });
    if(result && result.loginAccount === loginAccount){
        return  result.toJSON();
+   }else{
+     return {
+       code:'402',
+       msg:'账号或密码错误'
+     }
    }
-   return null;
+   // return null;
 }
 
 //获取个人信息
@@ -44,7 +49,7 @@ exports.updateAmin = async (id,adminObj) => {
   if (adminObj.loginPwd) {
     adminObj.loginPwd = md5(adminObj.loginPwd);
   }
-  return await Admin.update(adminObj, {
+  return  await Admin.update(adminObj, {
      where: {
        id
      }

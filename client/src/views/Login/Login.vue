@@ -115,11 +115,12 @@ export default {
               msg: '登录成功',
               type: 'success',
             });
-            this.$store.commit('loginUser', '');
+            this.$store.commit('Login/loginUser', '');
             this.$router.push('/');
           } else {
             this.$toast({
-              msg: '登录失败',
+              // eslint-disable-next-line no-undef
+              msg: res.msg,
               type: 'error',
             });
           }

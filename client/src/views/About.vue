@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 
 export default {
   computed: {
@@ -35,19 +35,33 @@ export default {
       password: '',
       nickName: '',
       loginAccount: '',
+      id: '',
     };
   },
   mounted() {
     this.nickName = this.userinfo.nickName;
     this.avator = this.userinfo.avator || 'https://himg.bdimg.com/sys/portrait/item/wise.1.fb57baf7.XesiFWlM5iQywMOK1frD0Q.jpg?time=1804';
     this.loginAccount = this.userinfo.loginAccount;
+    this.id = this.userinfo.id;
   },
   methods: {
-    Tocomfirm() {
+    ...mapActions({
+      Updatainfo: 'Login/Updatainfo',
+    }),
+    async Tocomfirm() {
       const {
-        password, accountName, account, avator,
+        password, accountName, account, avator, id, nickName,
       } = this;
-      console.log(password, accountName, account, avator);
+      const data = {
+        password, accountName, account, avator, id, nickName,
+      };
+      const res = await this.Updatainfo(data);
+      if (res.code === 0) {
+        this.$toast({
+          msg: '信息修改成功',
+          type: 'success',
+        });
+      }
     },
   },
 };

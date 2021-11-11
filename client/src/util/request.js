@@ -12,7 +12,7 @@ service.interceptors.request.use((config) => {
   }
   return config;
 }, (error) => {
-  console.log(error);
+  // console.log(error);
   Promise.reject(error);
 });
 
@@ -23,7 +23,7 @@ service.interceptors.response.use((resp) => {
   }
   return resp.data;
 }, (error) => {
-  if (error.response.status === 403) {
+  if (error.response.code === 403) {
     localStorage.removeItem('adminToken');
   } else {
     Message({

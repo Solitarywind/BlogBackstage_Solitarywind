@@ -19,7 +19,7 @@ const staticRoot = path.resolve(__dirname,'../public');
 app.use(express.static(staticRoot));
 
 // //白名单
-// const whiteList = ['null', "http://localhost:1026","http://127.0.0.1:1026","http://192.168.1.3:8080"];
+// const whiteList = ['null', "http://localhost:1026","http://127.0.0.1:1026","http://localhost:8080"];
 // app.use(cors({
 //   origin(origin,callback){
 //     if (!origin) {

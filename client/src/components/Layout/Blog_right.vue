@@ -9,7 +9,7 @@
     <el-dropdown>
       <div class="userinfo">
         <el-avatar :size="48" :src="avatar" shape="circle"/>
-        <h3>{{userinfo.account}}</h3>
+        <h3>{{userinfo.nickName}}</h3>
       </div>
       <el-dropdown-menu slot="dropdown">
         <el-dropdown-item @click.native="personalCont">个人中心</el-dropdown-item>

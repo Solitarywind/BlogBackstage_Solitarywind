@@ -16,7 +16,6 @@ exports.verify = (req) => {
   if(!token){ //不存在token
     return null;
   }
-
   token = token.split(" ");
   token = token.length === 1 ? token[0] : token[1];
 

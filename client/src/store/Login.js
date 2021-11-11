@@ -1,4 +1,6 @@
-import { verifyCode, loginAdminn } from '../http/loginService';
+import {
+  verifyCode, loginAdminn, updataUserInfo, getUserInfo,
+} from '../http/loginService';
 
 export default {
   namespaced: true,
@@ -21,6 +23,7 @@ export default {
         const res = await loginAdminn(userinfo);
         if (res.code === 0) {
           commit('getUserinfo', res.data);
+          localStorage.setItem('adminToken', res.data.token);
         }
         return res;
       }
@@ -33,6 +36,19 @@ export default {
     async loginCode() {
       // eslint-disable-next-line no-return-await
       return await verifyCode();
+    },
+    // eslint-disable-next-line consistent-return
+    async Updatainfo({ commit }, userInfo) {
+      if (userInfo) {
+        const res = await updataUserInfo(userInfo);
+        if (res.code === 0) {
+          const resp = await getUserInfo(userInfo.id);
+          if (resp.code === 0) {
+            commit('getUserinfo', resp.data);
+          }
+          return resp;
+        }
+      }
     },
   },
 };

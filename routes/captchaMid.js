@@ -21,7 +21,7 @@ function validateCaptcha(req,res,next) {
     if(reqCaptcha !== req.session.captcha){
        //验证码有问题
        res.send({
-         code:403, 
+         code:403,
          msg:'验证码有问题'
        })
     }else{

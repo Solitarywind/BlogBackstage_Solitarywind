@@ -3,8 +3,10 @@ const { pathToRegexp } = require("path-to-regexp");
 const jwt = require('./jwt');
 
 const needTokenApi = [
-  { mehtod:"POST", path:'/api/admin/userinfo'},
-  { mehtod:"GET", path: "/api/admin/userinfo"}
+  { mehtod:"PUT", path:'/api/admin/userinfo'},
+  { mehtod:"GET", path: "/api/admin/userinfo"},
+  { mehtod:"GET", path: "/api/label/list" },
+  { mehtod:"GET", path: "/api/sort/list" },
 ];
 
 //解析token
@@ -16,7 +18,8 @@ module.exports = (req,res,next) => {
   if(apis.length === 0){
     next();
     return;
-  }
+  };
+
   const result = jwt.verify(req);
   if(result){
      //认证通过

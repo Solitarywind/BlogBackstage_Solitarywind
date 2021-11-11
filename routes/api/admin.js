@@ -12,7 +12,6 @@ router.post('/register',asyncHandler(async(req,res) => {
 //登录
 router.post("/login",asyncHandler( async (req,res) =>{
    const result = await adminServ.login(req.body.loginAccount,req.body.loginPwd);
-   console.log(result);
    if(result){
      let value = result.id;
      let maxAge = 3600 * 24 * 7;
@@ -25,24 +24,24 @@ router.post("/login",asyncHandler( async (req,res) =>{
 
 //更新个人信息
 router.put('/userinfo',async (req,res,next) => {
-     let id = req.params.userId;
+     let id = req.body.id;
      if(id){
-       await adminServ.updateAmin(req.params.userId,req.body);
-       return {
+       await adminServ.updateAmin(id,req.body);
+       res.send ({
          code:0,
          message:'个人信息更新成功'
-       }
+       })
      }else{
-       return {
+       res.send ( {
          code:405,
          message:'id is not undefined or null',
          data:''
-       }
+       })
      }
 })
 //获取个人信息
 router.get('/userinfo',asyncHandler(async (req,res) => {
-    return await adminServ.getAdminById(req.userId);
+    return await adminServ.getAdminById(req.query.userId);
 }));
 
 module.exports = router;
