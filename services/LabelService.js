@@ -1,26 +1,57 @@
 const Label  = require('../models/Label');
-
-exports.addStore = async (obj) => {
-  await Sort.create(obj);
-}
-
-exports.updateStore = async (id,obj) => {
-  return await Label.update(obj, {
-    where:{
-      id
+const Admin = require("../models/Admin");
+const validate = require('validate.js')
+const { helper } = require('../util/propertyHelper');
+exports.addLabel = async (obj) => {
+  obj = helper(obj,'name','userId');
+  validate.validators.adminExits = async (value) => {
+    const a = await Admin.findByPk(value);
+    if(a){
+      return ;
     }
-  })
-}
+    return "is not exist";
+  };
 
-exports.getStore = async (userId) => {
-  const result = await Label.findByPk(userId);
-  if(result){
-    return result.toJSON();
+  const rule = {
+     //验证规则
+    name:{
+      presence: {
+        allowEnpty:false
+      },
+      type:"string"
+    },
+    userId:{
+      presence:true,
+      numericality:{
+        onlyInteger: true,
+        strict: false
+      },
+      adminExits:true
+    }
   }
-  return  null;
+  await validate.async(obj,rule);
+  await Label.create(obj);
+  return  {
+    code:0,
+    msg:'添加标签成功',
+    data:''
+  }
 }
 
-exports.deleteStore = async (id) => {
+
+exports.getLabel = async (userId) => {
+  const result = await Label.findAll({
+    where:{
+      userId
+    }
+  });
+  if(result){
+    return result;
+  }
+  return [];
+}
+
+exports.deleteLabel = async (id) => {
   return await Label.destroy({
     where:{
       id

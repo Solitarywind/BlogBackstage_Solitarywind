@@ -5,8 +5,11 @@ const jwt = require('./jwt');
 const needTokenApi = [
   { mehtod:"PUT", path:'/api/admin/userinfo'},
   { mehtod:"GET", path: "/api/admin/userinfo"},
-  { mehtod:"GET", path: "/api/label/list" },
+  { mehtod:"GET", path: "/api/label/list"},
+  { mehtod:"post", path: "/api/sort/addLabel"},
   { mehtod:"GET", path: "/api/sort/list" },
+  { mehtod:"post", path: "/api/sort/addSort"},
+
 ];
 
 //解析token
@@ -23,7 +26,8 @@ module.exports = (req,res,next) => {
   const result = jwt.verify(req);
   if(result){
      //认证通过
-    req.userId = res.id;
+    // req.userId = res.id;
+    console.log(result);
     next();
   }else{
     handleNonToken(req,res,next)

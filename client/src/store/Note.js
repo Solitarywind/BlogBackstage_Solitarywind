@@ -1,56 +1,9 @@
+import { addLabel, getLabel, deLabel } from '../http/labelService';
+
 export default {
   namespaced: true,
   state: {
-    labeList: [{
-      label: 'html',
-      effect: false,
-    },
-    {
-      label: 'css',
-      effect: false,
-    },
-    {
-      label: 'vue',
-      effect: false,
-    },
-    {
-      label: 'raet',
-      effect: false,
-    },
-
-    {
-      label: 'webpack',
-      effect: false,
-    },
-    {
-      label: 'es6',
-      effect: false,
-    },
-    {
-      label: 'vite',
-      effect: false,
-    },
-    {
-      label: 'VueSSR',
-      effect: false,
-    },
-    {
-      label: 'ReatSSR',
-      effect: false,
-    },
-    {
-      label: 'Javascript',
-      effect: false,
-    },
-    {
-      label: 'DOM',
-      effect: false,
-    },
-    {
-      label: 'BOM',
-      effect: false,
-    },
-    ],
+    labeList: [],
     noteData: {},
   },
   mutations: {
@@ -63,7 +16,6 @@ export default {
       state.noteData = noteData;
     },
   },
-  /* eslint no-param-reassign: "error" */
   actions: {
     // 选择标签
     changeLabel({
@@ -73,6 +25,7 @@ export default {
       const labelitem = state.labeList;
       labelitem.forEach((item) => {
         if (item.label === tag) {
+          // eslint-disable-next-line no-param-reassign
           item.effect = type;
         }
       });
@@ -81,20 +34,27 @@ export default {
       });
     },
     // 删除标签
-    deleteLabel({ state, commit }, played) {
-      const labelitem = state.labeList;
-      labelitem.splice(state.labeList.indexOf(played), 1);
-      commit('getLabel', {
-        labeList: labelitem,
-      });
+    async deleteLabel({ state }, id) {
+      // eslint-disable-next-line no-return-await
+      return await deLabel(id);
     },
     // 添加标签
-    addLabel({ state, commit }, played) {
-      const labelitem = state.labeList;
-      labelitem.push(played);
-      commit('getLabel', {
-        labeList: labelitem,
-      });
+    async newLabel({ state }, data) {
+      const res = await addLabel(data);
+      return res.code === 0;
+
+      // eslint-disable-next-line no-return-await
+      // return await addLabel(data);
     },
+
+    // eslint-disable-next-line consistent-return
+    async label({ state, commit }, userId) {
+      const res = await getLabel(userId);
+      if (res.code === 0) {
+        const labeList = res.data;
+        commit('getLabel', { labeList });
+      }
+    },
+
   },
 };

@@ -1,9 +1,30 @@
 const Admin = require('../models/Admin');
 const md5 = require('md5');
-let attributes =  ['id','loginAccount','avator','nickName','sex','token']
+const validate = require('validate.js')
+let attributes =  ['id','loginAccount','avator','nickName','sex','token'];
+
 //注册
 exports.addAdmin = async (adminObj) =>  {
   adminObj.loginPwd = md5(adminObj.loginPwd);
+  const rule = {
+    loginAccount:{
+      presence:{
+        allowEnpty: false
+      },
+      type:'string',
+      length:{
+        minimun:1,
+        maximum:10
+      }
+    },
+    loginPwd:{
+      presence: {
+        allowEmpty: false,
+      },
+      type: "string",
+    }
+  };
+  await validate.async(adminObj,rule)
   await Admin.create(adminObj);
   return {
     code:0,

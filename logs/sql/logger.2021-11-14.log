@@ -1,0 +1,132 @@
+sql [2021-11-14 23:42:48] [INFO]: Executing (default): CREATE TABLE IF NOT EXISTS `Admins` (`id` INTEGER NOT NULL auto_increment , `loginAccount` VARCHAR(255) NOT NULL, `loginPwd` VARCHAR(255) NOT NULL, `avator` VARCHAR(255) DEFAULT 'https://himg.bdimg.com/sys/portrait/item/wise.1.fb57baf7.XesiFWlM5iQywMOK1frD0Q.jpg?time=1804', `nickName` VARCHAR(255), `sex` TINYINT(1), `token` VARCHAR(255), `creatTime` DATETIME NOT NULL, `updateTime` DATETIME NOT NULL, `deleteTime` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+
+sql [2021-11-14 23:42:48] [INFO]: Executing (default): SHOW FULL COLUMNS FROM `Admins`;
+
+sql [2021-11-14 23:42:48] [INFO]: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'Admins' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='blogWind' AND REFERENCED_TABLE_NAME IS NOT NULL;
+
+sql [2021-11-14 23:42:48] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `loginAccount` `loginAccount` VARCHAR(255) NOT NULL;
+
+sql [2021-11-14 23:42:50] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `loginPwd` `loginPwd` VARCHAR(255) NOT NULL;
+
+sql [2021-11-14 23:42:50] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `avator` `avator` VARCHAR(255) DEFAULT 'https://himg.bdimg.com/sys/portrait/item/wise.1.fb57baf7.XesiFWlM5iQywMOK1frD0Q.jpg?time=1804';
+
+sql [2021-11-14 23:42:50] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `nickName` `nickName` VARCHAR(255);
+
+sql [2021-11-14 23:42:50] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `sex` `sex` TINYINT(1);
+
+sql [2021-11-14 23:42:51] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `token` `token` VARCHAR(255);
+
+sql [2021-11-14 23:42:51] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `creatTime` `creatTime` DATETIME NOT NULL;
+
+sql [2021-11-14 23:42:51] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `updateTime` `updateTime` DATETIME NOT NULL;
+
+sql [2021-11-14 23:42:51] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `deleteTime` `deleteTime` DATETIME;
+
+sql [2021-11-14 23:42:51] [INFO]: Executing (default): SHOW INDEX FROM `Admins`
+
+sql [2021-11-14 23:42:51] [INFO]: Executing (default): CREATE TABLE IF NOT EXISTS `Sorts` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255), `creatTime` DATETIME NOT NULL, `updateTime` DATETIME NOT NULL, `AdminId` INTEGER, PRIMARY KEY (`id`), FOREIGN KEY (`AdminId`) REFERENCES `Admins` (`id`) ON DELETE SET NULL ON UPDATE CASCADE) ENGINE=InnoDB;
+
+sql [2021-11-14 23:42:51] [INFO]: Executing (default): SHOW FULL COLUMNS FROM `Sorts`;
+
+sql [2021-11-14 23:42:51] [INFO]: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'Sorts' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='blogWind' AND REFERENCED_TABLE_NAME IS NOT NULL;
+
+sql [2021-11-14 23:42:51] [INFO]: Executing (default): ALTER TABLE `Sorts` CHANGE `name` `name` VARCHAR(255);
+
+sql [2021-11-14 23:42:52] [INFO]: Executing (default): ALTER TABLE `Sorts` CHANGE `creatTime` `creatTime` DATETIME NOT NULL;
+
+sql [2021-11-14 23:42:52] [INFO]: Executing (default): ALTER TABLE `Sorts` CHANGE `updateTime` `updateTime` DATETIME NOT NULL;
+
+sql [2021-11-14 23:42:52] [INFO]: Executing (default): ALTER TABLE `Sorts` ADD FOREIGN KEY (`AdminId`) REFERENCES `Admins` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+sql [2021-11-14 23:42:53] [INFO]: Executing (default): SHOW INDEX FROM `Sorts`
+
+sql [2021-11-14 23:42:53] [INFO]: Executing (default): CREATE TABLE IF NOT EXISTS `Labels` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255), `creatTime` DATETIME NOT NULL, `updateTime` DATETIME NOT NULL, `AdminId` INTEGER, PRIMARY KEY (`id`), FOREIGN KEY (`AdminId`) REFERENCES `Admins` (`id`) ON DELETE SET NULL ON UPDATE CASCADE) ENGINE=InnoDB;
+
+sql [2021-11-14 23:42:53] [INFO]: Executing (default): SHOW FULL COLUMNS FROM `Labels`;
+
+sql [2021-11-14 23:42:53] [INFO]: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'Labels' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='blogWind' AND REFERENCED_TABLE_NAME IS NOT NULL;
+
+sql [2021-11-14 23:42:53] [INFO]: Executing (default): ALTER TABLE `Labels` CHANGE `name` `name` VARCHAR(255);
+
+sql [2021-11-14 23:42:53] [INFO]: Executing (default): ALTER TABLE `Labels` CHANGE `creatTime` `creatTime` DATETIME NOT NULL;
+
+sql [2021-11-14 23:42:53] [INFO]: Executing (default): ALTER TABLE `Labels` CHANGE `updateTime` `updateTime` DATETIME NOT NULL;
+
+sql [2021-11-14 23:42:53] [INFO]: Executing (default): ALTER TABLE `Labels` ADD FOREIGN KEY (`AdminId`) REFERENCES `Admins` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+sql [2021-11-14 23:42:54] [INFO]: Executing (default): SHOW INDEX FROM `Labels`
+
+sql [2021-11-14 23:46:01] [INFO]: Executing (default): SELECT `id`, `loginAccount`, `avator`, `nickName`, `sex`, `token` FROM `Admins` AS `Admin` WHERE (`Admin`.`deleteTime` IS NULL AND (`Admin`.`loginAccount` = 'gufeng' AND `Admin`.`loginPwd` = 'e10adc3949ba59abbe56e057f20f883e')) LIMIT 1;
+
+sql [2021-11-14 23:52:58] [INFO]: Executing (default): SELECT `id`, `name`, `creatTime`, `updateTime`, `AdminId` FROM `Labels` AS `Label` WHERE `Label`.`id` = '2';
+
+sql [2021-11-14 23:53:18] [INFO]: Executing (default): SELECT `id`, `name`, `creatTime`, `updateTime`, `AdminId` FROM `Labels` AS `Label` WHERE `Label`.`id` = '2';
+
+sql [2021-11-14 23:54:27] [INFO]: Executing (default): CREATE TABLE IF NOT EXISTS `Admins` (`id` INTEGER NOT NULL auto_increment , `loginAccount` VARCHAR(255) NOT NULL, `loginPwd` VARCHAR(255) NOT NULL, `avator` VARCHAR(255) DEFAULT 'https://himg.bdimg.com/sys/portrait/item/wise.1.fb57baf7.XesiFWlM5iQywMOK1frD0Q.jpg?time=1804', `nickName` VARCHAR(255), `sex` TINYINT(1), `token` VARCHAR(255), `creatTime` DATETIME NOT NULL, `updateTime` DATETIME NOT NULL, `deleteTime` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+
+sql [2021-11-14 23:54:27] [INFO]: Executing (default): SHOW FULL COLUMNS FROM `Admins`;
+
+sql [2021-11-14 23:54:27] [INFO]: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'Admins' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='blogWind' AND REFERENCED_TABLE_NAME IS NOT NULL;
+
+sql [2021-11-14 23:54:27] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `loginAccount` `loginAccount` VARCHAR(255) NOT NULL;
+
+sql [2021-11-14 23:54:27] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `loginPwd` `loginPwd` VARCHAR(255) NOT NULL;
+
+sql [2021-11-14 23:54:28] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `avator` `avator` VARCHAR(255) DEFAULT 'https://himg.bdimg.com/sys/portrait/item/wise.1.fb57baf7.XesiFWlM5iQywMOK1frD0Q.jpg?time=1804';
+
+sql [2021-11-14 23:54:28] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `nickName` `nickName` VARCHAR(255);
+
+sql [2021-11-14 23:54:28] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `sex` `sex` TINYINT(1);
+
+sql [2021-11-14 23:54:28] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `token` `token` VARCHAR(255);
+
+sql [2021-11-14 23:54:29] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `creatTime` `creatTime` DATETIME NOT NULL;
+
+sql [2021-11-14 23:54:29] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `updateTime` `updateTime` DATETIME NOT NULL;
+
+sql [2021-11-14 23:54:29] [INFO]: Executing (default): ALTER TABLE `Admins` CHANGE `deleteTime` `deleteTime` DATETIME;
+
+sql [2021-11-14 23:54:30] [INFO]: Executing (default): SHOW INDEX FROM `Admins`
+
+sql [2021-11-14 23:54:30] [INFO]: Executing (default): CREATE TABLE IF NOT EXISTS `Sorts` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255), `creatTime` DATETIME NOT NULL, `updateTime` DATETIME NOT NULL, `AdminId` INTEGER, PRIMARY KEY (`id`), FOREIGN KEY (`AdminId`) REFERENCES `Admins` (`id`) ON DELETE SET NULL ON UPDATE CASCADE) ENGINE=InnoDB;
+
+sql [2021-11-14 23:54:30] [INFO]: Executing (default): SHOW FULL COLUMNS FROM `Sorts`;
+
+sql [2021-11-14 23:54:30] [INFO]: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'Sorts' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='blogWind' AND REFERENCED_TABLE_NAME IS NOT NULL;
+
+sql [2021-11-14 23:54:30] [INFO]: Executing (default): ALTER TABLE `Sorts` CHANGE `name` `name` VARCHAR(255);
+
+sql [2021-11-14 23:54:30] [INFO]: Executing (default): ALTER TABLE `Sorts` CHANGE `creatTime` `creatTime` DATETIME NOT NULL;
+
+sql [2021-11-14 23:54:30] [INFO]: Executing (default): ALTER TABLE `Sorts` CHANGE `updateTime` `updateTime` DATETIME NOT NULL;
+
+sql [2021-11-14 23:54:30] [INFO]: Executing (default): ALTER TABLE `Sorts` ADD FOREIGN KEY (`AdminId`) REFERENCES `Admins` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+sql [2021-11-14 23:54:31] [INFO]: Executing (default): SHOW INDEX FROM `Sorts`
+
+sql [2021-11-14 23:54:31] [INFO]: Executing (default): CREATE TABLE IF NOT EXISTS `Labels` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255), `creatTime` DATETIME NOT NULL, `updateTime` DATETIME NOT NULL, `AdminId` INTEGER, PRIMARY KEY (`id`), FOREIGN KEY (`AdminId`) REFERENCES `Admins` (`id`) ON DELETE SET NULL ON UPDATE CASCADE) ENGINE=InnoDB;
+
+sql [2021-11-14 23:54:31] [INFO]: Executing (default): SHOW FULL COLUMNS FROM `Labels`;
+
+sql [2021-11-14 23:54:31] [INFO]: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'Labels' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='blogWind' AND REFERENCED_TABLE_NAME IS NOT NULL;
+
+sql [2021-11-14 23:54:31] [INFO]: Executing (default): ALTER TABLE `Labels` CHANGE `name` `name` VARCHAR(255);
+
+sql [2021-11-14 23:54:31] [INFO]: Executing (default): ALTER TABLE `Labels` CHANGE `creatTime` `creatTime` DATETIME NOT NULL;
+
+sql [2021-11-14 23:54:31] [INFO]: Executing (default): ALTER TABLE `Labels` CHANGE `updateTime` `updateTime` DATETIME NOT NULL;
+
+sql [2021-11-14 23:54:31] [INFO]: Executing (default): ALTER TABLE `Labels` ADD FOREIGN KEY (`AdminId`) REFERENCES `Admins` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+sql [2021-11-14 23:54:32] [INFO]: Executing (default): SHOW INDEX FROM `Labels`
+
+sql [2021-11-14 23:55:03] [INFO]: Executing (default): SELECT `id`, `name`, `creatTime`, `updateTime`, `AdminId` FROM `Labels` AS `Label` WHERE `Label`.`id` = '2';
+
+sql [2021-11-14 23:57:47] [INFO]: Executing (default): SELECT `id`, `name`, `creatTime`, `updateTime`, `AdminId` FROM `Labels` AS `Label` WHERE `Label`.`id` = '2';
+
+sql [2021-11-14 23:58:14] [INFO]: Executing (default): SELECT `id`, `name`, `creatTime`, `updateTime`, `AdminId` FROM `Labels` AS `Label` WHERE `Label`.`id` = '2';
+
+sql [2021-11-14 23:58:38] [INFO]: Executing (default): SELECT `id`, `name`, `creatTime`, `updateTime`, `AdminId` FROM `Labels` AS `Label` WHERE `Label`.`id` = '2';
+
+sql [2021-11-14 23:59:36] [INFO]: Executing (default): SELECT `id`, `name`, `creatTime`, `updateTime`, `AdminId` FROM `Labels` AS `Label` WHERE `Label`.`id` = '2';
+

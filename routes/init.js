@@ -66,8 +66,9 @@ app.use(express.json());
 app.use(require('./captchaMid'));//验证码
 
 //接口
-app.use('/api/admin',require('./api/admin'))
-
+app.use('/api/admin',require('./api/admin'));
+app.use('/api/label',require('./api/label'));
+app.use('/api/sort',require('./api/sort'));
 //处理错误的中间件
 app.use(require('./errorMiddleware'))
 
