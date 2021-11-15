@@ -11,7 +11,6 @@ exports.addStore = async (obj) => {
         }
         return "is not exist";
       };
-     await Sort.create(obj);
      const rule = {
         name:{
           presence:{

@@ -52,6 +52,11 @@ export default {
       const res = await getLabel(userId);
       if (res.code === 0) {
         const labeList = res.data;
+        if (labeList.length > 0) {
+          labeList.forEach((v) => {
+            v.effect = false;
+          });
+        }
         commit('getLabel', { labeList });
       }
     },

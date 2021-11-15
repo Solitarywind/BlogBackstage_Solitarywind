@@ -90,7 +90,7 @@ export default {
     }
   },
   methods: {
-    // 删除标签
+    // 取消标签
     handleClose(tag) {
       this.noteData.noteLabel.splice(this.noteData.noteLabel.indexOf(tag), 1);
       this.$store.dispatch('Note/changeLabel', { tag, type: false });

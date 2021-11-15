@@ -12,7 +12,7 @@ export async function addSort(data) {
 export async function updateSort(id, data) {
   await delay(500);
   // eslint-disable-next-line no-return-await
-  return await requst.put(`/api/store/${id}`, {
+  return await requst.put(`/api/sort/${id}`, {
     ...data,
   });
 }

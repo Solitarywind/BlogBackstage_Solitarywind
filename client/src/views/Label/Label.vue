@@ -80,7 +80,6 @@ export default {
             userId: userInfo.id,
             name: val,
           };
-          console.log(data);
           const status = await this.newLabel(data);
           if (status) {
             this.$toast({

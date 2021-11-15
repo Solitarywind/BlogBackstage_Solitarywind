@@ -13,21 +13,36 @@ export default {
     getAtion(state, payload) {
       state.artItem = payload;
     },
-
+    getSortList(state, list) {
+      state.sortList = list;
+    },
   },
   actions: {
+
     async addClassifi({ state }, obj) {
-      return await addSort(obj);
+      const res = await addSort(obj);
+      return res.code === 0;
     },
     async delClassifi({ state }, id) {
-      return await delSort(id);
+      const res = await delSort(id);
+      return res.code === 0;
     },
-    async updataClassifi({ state }, id, obj) {
-      return await updateSort(id, obj);
+    async updataClassifi({ state }, payload) {
+      const res = await updateSort(payload.id, payload.data);
+      return res.code === 0;
     },
-    async obtainClassifi({ state }, userId) {
+    async obtainClassifi({ commit }, userId) {
       const res = await getSort(userId);
-      console.log(res);
+      if (res.code === 0) {
+        const classList = res.data;
+        if (classList.length > 0) {
+          classList.forEach((v) => {
+            // eslint-disable-next-line no-param-reassign
+            v.isEdit = false;
+          });
+          commit('getSortList', classList);
+        }
+      }
     },
   },
 };
