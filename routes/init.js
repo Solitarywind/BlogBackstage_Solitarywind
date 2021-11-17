@@ -65,6 +65,9 @@ app.use(express.json());
 
 app.use(require('./captchaMid'));//验证码
 
+//图片上传
+app.use(require('./upload'));
+
 //接口
 app.use('/api/admin',require('./api/admin'));
 app.use('/api/label',require('./api/label'));

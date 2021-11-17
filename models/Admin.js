@@ -12,7 +12,7 @@ const Admin = connect.define('Admin',{
    },
    avator:{
      type:DataTypes.STRING,
-     defaultValue:'https://himg.bdimg.com/sys/portrait/item/wise.1.fb57baf7.XesiFWlM5iQywMOK1frD0Q.jpg?time=1804'
+     defaultValue:'https://himg.bdimg.com/sys/portrait/item/pp.1.acd72b8f.c4c_18UbGUox8IrLVYqNuQ.jpg?tt=1637165732390'
    },
    nickName:{
      type:DataTypes.STRING,

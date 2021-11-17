@@ -1,8 +1,8 @@
 <template>
   <div class="userinfo">
     <el-upload class="uploader"
-               action="https://jsonplaceholder.typicode.com/posts/"
-               :show-file-list="false">
+               action="/api/upload"
+               :show-file-list="false"  :on-success="getAvator">
       <img :src="avator" class="avatr" alt="">
     </el-upload>
     <el-form label-width="100px">
@@ -40,7 +40,7 @@ export default {
   },
   mounted() {
     this.nickName = this.userinfo.nickName;
-    this.avator = this.userinfo.avator || 'https://himg.bdimg.com/sys/portrait/item/wise.1.fb57baf7.XesiFWlM5iQywMOK1frD0Q.jpg?time=1804';
+    this.avator = this.userinfo.avator;
     this.loginAccount = this.userinfo.loginAccount;
     this.id = this.userinfo.id;
   },
@@ -61,6 +61,11 @@ export default {
           msg: '信息修改成功',
           type: 'success',
         });
+      }
+    },
+    getAvator(res) {
+      if (res.code === 0) {
+        this.avator = res.data.url;
       }
     },
   },

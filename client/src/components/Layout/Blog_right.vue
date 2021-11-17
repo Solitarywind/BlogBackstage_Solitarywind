@@ -8,7 +8,7 @@
     </el-breadcrumb>
     <el-dropdown>
       <div class="userinfo">
-        <el-avatar :size="48" :src="avatar" shape="circle"/>
+        <el-avatar :size="48" :src="userinfo.avator" shape="circle"/>
         <h3>{{userinfo.nickName}}</h3>
       </div>
       <el-dropdown-menu slot="dropdown">
@@ -31,11 +31,6 @@ export default {
     }),
   },
 
-  data() {
-    return {
-      avatar: 'https://himg.bdimg.com/sys/portrait/item/wise.1.fb57baf7.XesiFWlM5iQywMOK1frD0Q.jpg?time=1804',
-    };
-  },
   methods: {
     personalCont() {
       this.$router.push({
