@@ -1,4 +1,4 @@
-const Sort  = require('../models/classification');
+const Sort  = require('../models/Sort');
 const Admin = require('../models/Admin');
 const validate = require('validate.js');
 const { helper } = require('../util/propertyHelper')

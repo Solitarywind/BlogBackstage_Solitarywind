@@ -29,6 +29,12 @@
           </el-checkbox-group>
         </div>
       </el-form-item>
+      <el-form-item label="封面图片">
+        <el-upload action="/api/upload" :show-file-list="false"  :on-success="getCover">
+          <img class="coverImg" v-if="article.coverPic" :src="article.coverPic" alt="">
+          <i  class="el-icon-plus coverImg"></i>
+        </el-upload>
+      </el-form-item>
     </el-form>
     <Editor
       editHeight="650px"
@@ -58,6 +64,7 @@ export default {
         articleClass: [],
         top: false,
         artContent: '',
+        coverPic: '',
       },
       classList: ['美食', '旅行', '游戏', '天气', '生活'],
       restaurants: [],
@@ -84,6 +91,12 @@ export default {
     submitArticle() {
       console.log(this.article);
     },
+    // 获取封面
+    getCover(res) {
+      if (res.code === 0) {
+        this.article.coverPic = res.data.url;
+      }
+    },
   },
 };
 </script>
@@ -103,5 +116,13 @@ export default {
 .checkout {
   background: #fff;
   padding: 10px;
+}
+
+.coverImg{
+  width: 180px;
+  height: 180px;
+  line-height: 180px;
+  font-size: 60px;
+  border: 1px dashed #909399;
 }
 </style>

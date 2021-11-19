@@ -4,7 +4,7 @@
       <el-form-item label="笔记标题">
         <el-input
           type="text"
-          v-model="noteData.noteTitle"
+          v-model="noteData.noteName"
           clearable
           placeholder="请输入标题"
           style="width: 300px"
@@ -31,19 +31,25 @@
           >
         </div>
         <div class="tagbox">
-          <div>请选择:</div>
+          <div class="tagName">请选择标签:</div>
           <div class="tagList">
             <el-tag
               v-for="tagItem in labeList"
-              :key="tagItem.label"
-              @click.prevent="handleIConfirm(tagItem.label)"
+              :key="tagItem.name"
+              @click.prevent="handleIConfirm(tagItem.name)"
               :effect="tagItem.effect ? 'dark' : 'plain'"
-              @dblclick.native="handleClose(tagItem.label)"
+              @dblclick.native="handleClose(tagItem.name)"
             >
-              {{ tagItem.label }}
+              {{ tagItem.name }}
             </el-tag>
           </div>
         </div>
+      </el-form-item>
+      <el-form-item label="封面图片">
+        <el-upload action="/api/upload" :show-file-list="false"  :on-success="getCover">
+          <img class="coverImg" v-if="noteData.coverPic" :src="noteData.coverPic" alt="">
+           <i  class="el-icon-plus coverImg"></i>
+        </el-upload>
       </el-form-item>
       <Editor editHeight="650px" @edchange="edchange" :editVal="noteCont"/>
       <el-row justify="end" type="flex">
@@ -66,10 +72,11 @@ export default {
     return {
       noteCont: '',
       noteData: {
-        noteTitle: '',
+        noteName: '',
         noteCode: '',
         noteLabel: [],
         noteCont: '',
+        coverPic: '',
       },
     };
   },
@@ -82,7 +89,7 @@ export default {
     if (Object.keys(this.$route.params).length > 0) {
       this.$route.meta.name = '编辑笔记';
       const note = this.$store.state.Note.noteData;
-      console.log(note);
+      // console.log(note);
       this.noteCont = note.noteCont;
       this.noteData = note;
     } else {
@@ -109,6 +116,12 @@ export default {
     submitNote() {
       console.log(this.noteData);
     },
+    // 获取封面
+    getCover(res) {
+      if (res.code === 0) {
+        this.noteData.coverPic = res.data.url;
+      }
+    },
   },
 };
 </script>
@@ -120,7 +133,7 @@ export default {
   .labelBox {
     width: 100%;
     border-bottom: 1px solid #dad5d5;
-    padding: 10px 0px;
+    padding: 10px;
     min-height: 30px;
     .el-tag {
         margin-right:10px;
@@ -131,6 +144,11 @@ export default {
     background: #fff;
     padding: 10px 10px 20px;
     margin-top: 20px;
+    display: flex;
+    align-items: center;
+    .tagName{
+      margin-right: 10px;
+    }
     .tagList {
       display: flex;
       flex-wrap: wrap;
@@ -148,5 +166,14 @@ export default {
     line-height: 30px;
     margin-bottom: 50px;
   }
+
+  .coverImg{
+    width: 180px;
+    height: 180px;
+    line-height: 180px;
+    font-size: 60px;
+    border: 1px dashed #909399;
+  }
+
 }
 </style>

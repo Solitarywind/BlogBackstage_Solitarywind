@@ -1,6 +1,6 @@
 //同步模型
 require("./Admin");
-require('./classification');
+require('./Sort');
 require('./Label');
 const sequelize = require('./Connect');
 sequelize.sync({alter:true}).then(() => {
